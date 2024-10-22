@@ -1,14 +1,15 @@
-import querystring from "querystring";
 import Link from "next/link";
 export default function Home() {
-  const spotifyAuthUrl =
-    "https://accounts.spotify.com/authorize?" +
-    querystring.stringify({
-      response_type: "code",
-      client_id: process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID,
-      redirect_uri: "http://localhost:3000/mymusic",
-      scope: "user-read-private user-read-email",
-    });
+  const authEndPoint = "https://accounts.spotify.com/authorize";
+  const redirectUri = "http://localhost:3000/mymusic";
+  const clientId = process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID;
+  const scopes = ["user-read-currently-playing", "user-read-recently-played"];
 
-  return <Link href={spotifyAuthUrl}>Login</Link>;
+  const loginUrl = `${authEndPoint}?
+client_id=${clientId}
+&redirect_uri=${redirectUri}
+&scope=${scopes.join("%20")}
+&response_type=token
+&show_dialog=true`;
+  return <a href={loginUrl}>My Login to Spotify</a>;
 }
