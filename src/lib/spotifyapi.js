@@ -1,14 +1,17 @@
-const spotifyAuthUrl =
-  "https://accounts.spotify.com/authorize?" +
-  querystring.stringify({
-    response_type: "code",
-    client_id: process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID,
-    redirect_uri: "http://localhost:3000/mymusic",
-    scope: "user-read-private user-read-email",
-  });
-
-export async function GetAuthorization() {
-  const response = await fetch(spotifyAuthUrl);
-  const json = await response.json();
-  console.log(json);
+import { getCookie } from "cookies-next";
+export async function getFeaturedPlayLists() {
+  try {
+    const response = await fetch(
+      "https://api.spotify.com/v1/browse/new-releases?limit=10",
+      {
+        headers: {
+          Authorization: `Bearer ${getCookie("token_cookie")}`,
+        },
+      }
+    );
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
 }
