@@ -4,12 +4,12 @@ import { useEffect } from "react";
 import { getFeaturedPlayLists } from "@/lib/spotifyapi";
 import { useState } from "react";
 import Featured from "@/components/featured";
+import Link from "next/link";
 
 export default function MyMusicPage() {
   const [albums, setAlbums] = useState(null);
-  console.log(albums);
 
-  // if (albums) console.log(albums);
+  if (albums) console.log(albums);
 
   useEffect(() => {
     const hash = window.location.hash; //true/false
@@ -51,5 +51,18 @@ export default function MyMusicPage() {
   //   xyz();
   // }, []);
 
-  return <>{albums ? <Featured albums={albums} /> : null}</>;
+  return (
+    <>
+    <h1>Featured</h1>
+      <section className="flex flex-col gap-4 items-center">
+        {albums
+          ? albums.albums.items.map((album) => (
+              <Link key={album.id} href={`/album/${album.id}`}>
+                <Featured album={album} />
+              </Link>
+            ))
+          : null}
+      </section>
+    </>
+  );
 }

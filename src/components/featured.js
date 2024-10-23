@@ -1,18 +1,10 @@
-export default function Featured({ albums }) {
-  console.log(albums.albums.items[0].images[0].url);
-  //   return albums.albums.items.map((myItem) => {
-  //     return (
-  //       <article key={myItem.images[0].url}>
-  //         <img src={myItem.images[0].url} />
-  //         <p>{myItem.name}</p>
-  //       </article>
-  //     );
-  //   });
+import Image from "next/image";
+
+export default function Featured({ album }) {
   return (
-    <article className="featured-component">
-      <h1 className="articleheader">Featured</h1>
-      <img src={albums.albums.items[1].images[0].url} />
-      <p>{albums.albums.items[1].name}</p>
+    <article className="border rounded p-4" key={album.images[0].url}>
+      <Image src={album.images[0].url} width={300} height={300} alt="crazy" />
+      <p>{album.name}</p>
     </article>
   );
 }
