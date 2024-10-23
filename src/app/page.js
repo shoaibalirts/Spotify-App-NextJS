@@ -1,3 +1,5 @@
+import Login from "@/components/login";
+
 export default function Home() {
   const authEndPoint = "https://accounts.spotify.com/authorize";
   const redirectUri = "http://localhost:3000/featured";
@@ -10,5 +12,5 @@ client_id=${clientId}
 &scope=${scopes.join("%20")}
 &response_type=token
 &show_dialog=true`;
-  return <a href={loginUrl}>My Login to Spotify</a>;
+  return <Login login={loginUrl} />;
 }
