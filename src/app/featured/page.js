@@ -3,6 +3,7 @@ import { setCookie } from "cookies-next";
 import { useEffect } from "react";
 import { getFeaturedPlayLists } from "@/lib/spotifyapi";
 import { useState } from "react";
+import Featured from "@/components/featured";
 
 export default function MyMusicPage() {
   const [albums, setAlbums] = useState(null);
@@ -33,7 +34,7 @@ export default function MyMusicPage() {
     async function fetchPlayLists() {
       try {
         const lists = await getFeaturedPlayLists();
-        setAlbums(lists.albums.items);
+        setAlbums(lists);
       } catch (error) {
         console.error("Error fetching playlists", error);
       }
@@ -50,5 +51,5 @@ export default function MyMusicPage() {
   //   xyz();
   // }, []);
 
-  return;
+  return <>{albums ? <Featured albums={albums} /> : null}</>;
 }
