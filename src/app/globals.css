@@ -16,6 +16,7 @@
     width: 100%;
     overflow-x: hidden;
     font-size: 14px;
+    padding: 28px 25px 28px 25px;
   }
 }
 
@@ -34,7 +35,7 @@
     min-height: 100vh;
     line-height: 16px;
     background-color: var(--background-color);
-    color: var(--grayscale-white-color);
+    color: var(--text-color);
   }
   a {
     text-decoration: none;
@@ -43,7 +44,7 @@
 }
 
 @layer components1 {
-  .loginsection {
+  .login-component {
     padding: 34px 25px 0 24.5px;
     .loginheader {
       margin-bottom: 174px;
@@ -97,6 +98,13 @@
       margin-left: 25%;
       font-size: 15px;
       font-weight: lighter;
+    }
+  }
+
+  .featured-component {
+    .articleheader {
+      margin-bottom: 36.75px;
+      color: linear-gradient(to left top rgb(255, 17, 104), rgb(242, 188, 6));
     }
   }
 }

@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Login({ login }) {
   return (
-    <section className="loginsection">
+    <section className="login-component">
       <h1 className="loginheader">Log In</h1>
       <form className="loginform">
         <label className="loginlabel loginlabelusername">Username</label>
