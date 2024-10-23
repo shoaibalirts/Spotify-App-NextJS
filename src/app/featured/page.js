@@ -2,8 +2,14 @@
 import { setCookie } from "cookies-next";
 import { useEffect } from "react";
 import { getFeaturedPlayLists } from "@/lib/spotifyapi";
+import { useState } from "react";
 
 export default function MyMusicPage() {
+  const [albums, setAlbums] = useState(null);
+  console.log(albums);
+
+  // if (albums) console.log(albums);
+
   useEffect(() => {
     const hash = window.location.hash; //true/false
     if (hash) {
@@ -24,12 +30,25 @@ export default function MyMusicPage() {
   }, []);
 
   useEffect(() => {
-    async function xyz() {
-      const lists = await getFeaturedPlayLists();
-      console.log(lists);
+    async function fetchPlayLists() {
+      try {
+        const lists = await getFeaturedPlayLists();
+        setAlbums(lists.albums.items);
+      } catch (error) {
+        console.error("Error fetching playlists", error);
+      }
     }
-    xyz();
+    fetchPlayLists();
   }, []);
+
+  // useEffect(() => {
+  //   async function xyz() {
+  //     const lists = await getFeaturedPlayLists();
+  //     console.log(lists.albums.items);
+  //     // setAlbums(lists.albums.items);
+  //   }
+  //   xyz();
+  // }, []);
 
   return;
 }
