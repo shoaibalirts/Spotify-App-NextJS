@@ -1,11 +1,17 @@
-import { getCookie } from "cookies-next";
-export async function getFeaturedPlayLists() {
+"use server";
+import { cookies } from "next/headers";
+
+export async function getNewReleases() {
+  const cookieStore = await cookies();
+  const token = cookieStore.get("token_cookie");
+  console.log("token", token);
+
   try {
     const response = await fetch(
       "https://api.spotify.com/v1/browse/new-releases?limit=10",
       {
         headers: {
-          Authorization: `Bearer ${getCookie("token_cookie")}`,
+          Authorization: `Bearer ${token.value}`,
         },
       }
     );
@@ -19,10 +25,13 @@ export async function getFeaturedPlayLists() {
 }
 
 export async function getAlbums(id) {
+  const cookieStore = await cookies();
+  const token = cookieStore.get("token_cookie");
+
   try {
     const response = await fetch(`https://api.spotify.com/v1/albums/${id}`, {
       headers: {
-        Authorization: `Bearer ${getCookie("token_cookie")}`,
+        Authorization: `Bearer ${token.value})}`,
       },
     });
     const data = await response.json();

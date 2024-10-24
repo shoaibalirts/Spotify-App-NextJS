@@ -1,8 +1,8 @@
 "use client";
 import { setCookie } from "cookies-next";
-import { useEffect } from "react";
-import { getFeaturedPlayLists } from "@/lib/spotifyapi";
-import { useState } from "react";
+
+import { useState, useEffect } from "react";
+import { getNewReleases } from "@/lib/spotifyapi";
 import Featured from "@/components/featured";
 import Link from "next/link";
 
@@ -21,8 +21,9 @@ export default function MyMusicPage() {
         ?.split("=")[1];
       if (token) {
         // Use the token
-        // console.log(token);
-        setCookie("token_cookie", token);
+        console.log("Token: " + token);
+        setCookie("token_cookie", token, { path: "/" });
+
         // Store the token securely (e.g., in state or secure storage)
         // Then clear the hash to remove the token from the URL
         window.location.hash = "";
@@ -31,15 +32,15 @@ export default function MyMusicPage() {
   }, []);
 
   useEffect(() => {
-    async function fetchPlayLists() {
+    async function fetchAlbumsLists() {
       try {
-        const lists = await getFeaturedPlayLists();
+        const lists = await getNewReleases();
         setAlbums(lists);
       } catch (error) {
         console.error("Error fetching playlists", error);
       }
     }
-    fetchPlayLists();
+    fetchAlbumsLists();
   }, []);
 
   // useEffect(() => {
@@ -53,7 +54,7 @@ export default function MyMusicPage() {
 
   return (
     <>
-    <h1>Featured</h1>
+      <h1>Featured</h1>
       <section className="flex flex-col gap-4 items-center">
         {albums
           ? albums.albums.items.map((album) => (

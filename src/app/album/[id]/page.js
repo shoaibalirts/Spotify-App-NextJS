@@ -1,3 +1,4 @@
+import Albums from "@/components/albums";
 import { getAlbums } from "@/lib/spotifyapi";
 
 export default async function PlayListPage({ params }) {
@@ -5,6 +6,6 @@ export default async function PlayListPage({ params }) {
 
   const data = await getAlbums(id);
 
-  console.log(data);
+  console.log("data", data);
   return null;
 }

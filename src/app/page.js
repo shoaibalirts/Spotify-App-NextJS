@@ -14,3 +14,8 @@ client_id=${clientId}
 &show_dialog=true`;
   return <Login login={loginUrl} />;
 }
+// "https://accounts.spotify.com/authorize?client_id=81a35df4b29149208ae83b5defff691a&redirect_uri=http://localhost:3000/featured&scope=user-read-currently-playing%20user-read-recently-played&response_type=token&&show_dialog=true"
+
+//
+// redirected to:
+//http://localhost:3000/featured
