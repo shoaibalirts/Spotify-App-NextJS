@@ -1,11 +1,12 @@
 import Albums from "@/components/albums";
-import { getAlbums } from "@/lib/spotifyapi";
+import { getAlbumsTracks } from "@/lib/spotifyapi";
 
 export default async function PlayListPage({ params }) {
   const { id } = await params;
 
-  const data = await getAlbums(id);
+  const data = await getAlbumsTracks(id);
 
-  console.log("data", data);
-  return null;
+  console.log(data.items);
+
+  return <Albums tracks={data.items} />;
 }

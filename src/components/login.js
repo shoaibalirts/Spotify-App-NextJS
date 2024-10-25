@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function Login({ login }) {
+export default function Login({ loginData }) {
   return (
     <section className="login-component">
       <h1 className="loginheader">Log In</h1>
@@ -27,7 +27,7 @@ export default function Login({ login }) {
           <img src="/images/loginpassword.png" alt="login key" />
         </div>
         <hr className="hr hr2" />
-        <Link href={login} className="loginlink">
+        <Link href={loginData} className="loginlink">
           LOG IN
         </Link>
       </form>

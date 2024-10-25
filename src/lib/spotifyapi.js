@@ -24,16 +24,63 @@ export async function getNewReleases() {
   }
 }
 
+export async function getAlbumsTracks(id) {
+  const cookieStore = await cookies();
+  const token = cookieStore.get("token_cookie");
+
+  try {
+    const response = await fetch(
+      `https://api.spotify.com/v1/albums/${id}/tracks`,
+      {
+        headers: {
+          Authorization: `Bearer ${token.value})}`,
+        },
+      }
+    );
+    const data = await response.json();
+
+    // console.log(data);
+
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function getArtist(id) {
+  const cookieStore = await cookies();
+  const token = cookieStore.get("token_cookie");
+
+  try {
+    const response = await fetch(`https://api.spotify.com/v1/artists/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token.value})}`,
+      },
+    });
+    const data = await response.json();
+
+    // console.log(data);
+
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+/*
 export async function getAlbums(id) {
   const cookieStore = await cookies();
   const token = cookieStore.get("token_cookie");
 
   try {
-    const response = await fetch(`https://api.spotify.com/v1/albums/${id}`, {
-      headers: {
-        Authorization: `Bearer ${token.value})}`,
-      },
-    });
+    const response = await fetch(
+      `https://api.spotify.com/v1/albums/${id}/track`,
+      {
+        headers: {
+          Authorization: `Bearer ${token.value})}`,
+        },
+      }
+    );
     const data = await response.json();
     // console.log(data);
 
@@ -42,3 +89,5 @@ export async function getAlbums(id) {
     console.log(error);
   }
 }
+
+*/
