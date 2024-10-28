@@ -6,7 +6,7 @@ import { getNewReleases } from "@/lib/spotifyapi";
 import Featured from "@/components/featured";
 import Link from "next/link";
 
-export default function MyMusicPage() {
+export default function FeaturedPage() {
   const [albums, setAlbums] = useState(null);
 
   if (albums) console.log(albums);
@@ -52,9 +52,12 @@ export default function MyMusicPage() {
   //   xyz();
   // }, []);
 
+  console.log(albums);
+
   return (
     <>
-      <h1>Featured</h1>
+      <Link href={`/category`}>Categories</Link>
+      <h2>Featured</h2>
       <section className="flex flex-col gap-4 items-center">
         {albums
           ? albums.albums.items.map((album) => (

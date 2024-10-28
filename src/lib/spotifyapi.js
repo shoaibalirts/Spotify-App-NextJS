@@ -47,16 +47,43 @@ export async function getAlbumsTracks(id) {
   }
 }
 
-export async function getArtist(id) {
+///// working on categories /////
+export async function getCategories() {
   const cookieStore = await cookies();
   const token = cookieStore.get("token_cookie");
 
   try {
-    const response = await fetch(`https://api.spotify.com/v1/artists/${id}`, {
-      headers: {
-        Authorization: `Bearer ${token.value})}`,
-      },
-    });
+    const response = await fetch(
+      "https://api.spotify.com/v1/browse/categories?limit=50",
+      {
+        headers: {
+          Authorization: `Bearer ${token.value})}`,
+        },
+      }
+    );
+    const data = await response.json();
+
+    // console.log(data);
+
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+// fetching genres
+export async function getPlayListAgainstCategory(id) {
+  const cookieStore = await cookies();
+  const token = cookieStore.get("token_cookie");
+
+  try {
+    const response = await fetch(
+      `https://api.spotify.com/v1/browse/categories/${id}/playlists`,
+      {
+        headers: {
+          Authorization: `Bearer ${token.value})}`,
+        },
+      }
+    );
     const data = await response.json();
 
     // console.log(data);
