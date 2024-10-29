@@ -56,7 +56,13 @@ export default function FeaturedPage() {
 
   return (
     <>
-      <Link href={`/category`}>Categories</Link>
+      <p>
+        <Link href={`/category`}>Categories</Link>
+      </p>
+      <p>
+        <Link href={`/usersavedalbums`}>User Saved Albums</Link>
+      </p>
+
       <h2>Featured</h2>
       <section className="flex flex-col gap-4 items-center">
         {albums

@@ -70,7 +70,7 @@ export async function getCategories() {
     console.log(error);
   }
 }
-// fetching genres
+// fetching playlists and not genres
 export async function getPlayListAgainstCategory(id) {
   const cookieStore = await cookies();
   const token = cookieStore.get("token_cookie");
@@ -78,6 +78,30 @@ export async function getPlayListAgainstCategory(id) {
   try {
     const response = await fetch(
       `https://api.spotify.com/v1/browse/categories/${id}/playlists`,
+      {
+        headers: {
+          Authorization: `Bearer ${token.value})}`,
+        },
+      }
+    );
+    const data = await response.json();
+
+    // console.log(data);
+
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+// Get user saved albums
+export async function getUserSavedAlbums() {
+  const cookieStore = await cookies();
+  const token = cookieStore.get("token_cookie");
+
+  try {
+    const response = await fetch(
+      "https://api.spotify.com/v1/me/albums?limit=50",
       {
         headers: {
           Authorization: `Bearer ${token.value})}`,

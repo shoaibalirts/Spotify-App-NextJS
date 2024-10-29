@@ -1,5 +1,5 @@
 import Category from "@/components/category";
-import { getCategories, getPlayListAgainstCategory } from "@/lib/spotifyapi";
+import { getCategories } from "@/lib/spotifyapi";
 export default async function CategoryPage() {
   const categoryData = await getCategories();
   const categoryList = categoryData.categories.items;

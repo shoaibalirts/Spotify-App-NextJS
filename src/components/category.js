@@ -21,8 +21,8 @@ export default function Category({ catId, catName, children }) {
       categoryList = await getPlayListAgainstCategory(catId);
       console.log(categoryList);
       console.log(categoryList.message);
-      console.log(categoryList.playlists.items[0].id);
-      setList(categoryList.playlists.items[0].id);
+      // console.log(categoryList.playlists.items[0].id);
+      // setList(categoryList.playlists.items[0].id);
       setList(
         categoryList.playlists.items.map((item) => {
           return <p key={newKey()}>{item.name}</p>;
@@ -30,6 +30,7 @@ export default function Category({ catId, catName, children }) {
       );
     }
     fetchGenres();
+    console.log(list);
   }
   return (
     <>
