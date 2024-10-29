@@ -1,12 +1,17 @@
 import { getUserSavedAlbums } from "@/lib/spotifyapi";
-
+import UserSavedAlbums from "@/components/userSavedAlbums";
 export default async function UserSavedAlbumsPage() {
-  try {
-    const userSavedAlbums = await getUserSavedAlbums();
-    console.log(userSavedAlbums);
-  } catch (error) {
-    console.error("Error fetching user saved albums", error);
-  }
+  const userSavedAlbums = await getUserSavedAlbums();
+  console.log(userSavedAlbums);
 
-  return <h1>User Saved Albums</h1>;
+  return (
+    <>
+      <header>
+        <h1>User Saved Albums</h1>
+      </header>
+      <main>
+        <UserSavedAlbums savedAlbums={userSavedAlbums.items} />
+      </main>
+    </>
+  );
 }
