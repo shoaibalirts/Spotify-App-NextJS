@@ -20,9 +20,12 @@ export default async function CategoryPage() {
       <main>
         <ul>
           {categoryList.map((category) => (
-            <li key={category.name} onClick={fetchCategoryData(category.id)}>
+            <button
+              key={category.name}
+              onClick={fetchCategoryData(category.id)}
+            >
               {category.name}
-            </li>
+            </button>
           ))}
         </ul>
       </main>
