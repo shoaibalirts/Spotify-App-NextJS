@@ -1,7 +1,29 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
-@tailwind utilities;
-
+@tailwind utilities; */
+@layer customComponents;
+@layer customComponents {
+  li {
+    list-style: none;
+  }
+  button {
+    background-color: rgba(255, 60, 0, 0.438); /* Green */
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-bottom: 1rem;
+    border-radius: 1rem;
+    width: 20rem;
+    &:hover {
+      background-color: red;
+      color: white;
+      cursor: pointer;
+    }
+  }
+}
 /*
 
 @layer reset, base1, navigation, components1;

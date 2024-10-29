@@ -1,3 +1,4 @@
+import Category from "@/components/category";
 import { getCategories, getPlayListAgainstCategory } from "@/lib/spotifyapi";
 export default async function CategoryPage() {
   const categoryData = await getCategories();
@@ -20,12 +21,11 @@ export default async function CategoryPage() {
       <main>
         <ul>
           {categoryList.map((category) => (
-            <button
-              key={category.name}
-              onClick={fetchCategoryData(category.id)}
-            >
-              {category.name}
-            </button>
+            <li key={category.name}>
+              <Category catId={category.id} catName={category.name}>
+                {category.name}
+              </Category>
+            </li>
           ))}
         </ul>
       </main>
