@@ -5,9 +5,11 @@ import { useState, useEffect } from "react";
 import { getNewReleases } from "@/lib/spotifyapi";
 import Featured from "@/components/featured";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function FeaturedPage() {
   const [albums, setAlbums] = useState(null);
+  const router = useRouter();
 
   if (albums) console.log(albums);
 
@@ -26,7 +28,8 @@ export default function FeaturedPage() {
 
         // Store the token securely (e.g., in state or secure storage)
         // Then clear the hash to remove the token from the URL
-        window.location.hash = "";
+        // window.location.hash = "";
+        router.push("/featured");
       }
     }
   }, []);

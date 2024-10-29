@@ -94,20 +94,17 @@ export async function getPlayListAgainstCategory(id) {
   }
 }
 
-// Get user saved albums
+// Get user saved albums //////////////////////////////////////////////////
 export async function getUserSavedAlbums() {
   const cookieStore = await cookies();
   const token = cookieStore.get("token_cookie");
 
   try {
-    const response = await fetch(
-      "https://api.spotify.com/v1/me/albums?limit=50",
-      {
-        headers: {
-          Authorization: `Bearer ${token.value})}`,
-        },
-      }
-    );
+    const response = await fetch("https://api.spotify.com/v1/me/albums", {
+      headers: {
+        Authorization: `Bearer ${token.value})}`,
+      },
+    });
     const data = await response.json();
 
     // console.log(data);
