@@ -4,15 +4,6 @@ export default async function CategoryPage() {
   const categoryData = await getCategories();
   const categoryList = categoryData.categories.items;
 
-  function fetchCategoryData(categoryId) {
-    console.log("clicked");
-
-    async function xyz() {
-      const categoryList = await getPlayListAgainstCategory(categoryId);
-    }
-    xyz();
-    console.log(categoryList);
-  }
   return (
     <>
       <header>
