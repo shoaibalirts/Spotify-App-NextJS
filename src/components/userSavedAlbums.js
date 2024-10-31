@@ -18,8 +18,8 @@ export default function UserSavedAlbums({ savedAlbums }) {
           <Image
             src={item.album.images[0].url}
             alt={item.album.name}
-            width={640}
-            height={640}
+            width={300}
+            height={300}
             priority
           />
         </article>
