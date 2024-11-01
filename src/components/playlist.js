@@ -1,4 +1,5 @@
 "use client";
+import classes from "./playlist.module.css";
 import Image from "next/image";
 import Link from "next/link";
 export default function Playlist({ playlistData }) {
@@ -8,8 +9,8 @@ export default function Playlist({ playlistData }) {
   //   console.log(trackItems);
 
   return (
-    <Link href={`/playlist/${id}`}>
-      <section>
+    <Link href={`/playlist/${id}`} className={classes.link}>
+      <section className={classes.item}>
         <p>{message}</p>
         <p>{name}</p>
         <p>Created by: {owner}</p>
