@@ -30,6 +30,10 @@
   .savedalbumsarticle {
     background-color: rgba(128, 128, 128, 0.456);
   }
+  .listItem {
+    background-color: gray;
+    margin-bottom: 1rem;
+  }
 }
 /*
 

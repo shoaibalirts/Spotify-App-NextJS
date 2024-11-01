@@ -9,7 +9,7 @@ export default function Playlist({ playlistData }) {
 
   return (
     <Link href={`/playlist/${id}`}>
-      <section>
+      <section className="listItem">
         <p>{message}</p>
         <p>{name}</p>
         <p>Created by: {owner}</p>
