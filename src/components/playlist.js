@@ -1,27 +1,21 @@
 "use client";
 import Image from "next/image";
-
+import Link from "next/link";
 export default function Playlist({ playlistData }) {
-  //   console.log(playlistData);
+  console.log(playlistData);
 
-  const [imgSrc, message, name, owner, totalTracks, trackName] = playlistData;
-  //   console.log(imgSrc);
-  //   console.log(message);
-  //   console.log(name);
-  //   console.log(owner);
-  //   console.log(totalTracks);
-  //   console.log(trackName);
+  const [id, message, name, owner, totalTracks] = playlistData;
+  //   console.log(trackItems);
 
   return (
-    <section>
-      <Image src={imgSrc} alt={message} width={300} height={300} priority />
-      <p>{message}</p>
-      <p>{name}</p>
-      <p>Created by: {owner}</p>
-      <p>
-        {totalTracks} {""}songs
-      </p>
-      <p>{trackName}</p>
-    </section>
+    <Link href={`/playlist/${id}`}>
+      <section>
+        <p>{message}</p>
+        <p>{name}</p>
+        <p>Created by: {owner}</p>
+        <p>{totalTracks} songs</p>
+        {/* <p>{trackItems[0].track.name}</p> */}
+      </section>
+    </Link>
   );
 }
