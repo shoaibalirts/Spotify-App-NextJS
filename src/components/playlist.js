@@ -2,14 +2,15 @@
 import Image from "next/image";
 
 export default function Playlist({ playlistData }) {
-  console.log(typeof playlistData);
+  //   console.log(playlistData);
 
-  const [imgSrc, message, name, owner, totalTracks] = playlistData;
-  console.log(imgSrc);
-  console.log(message);
-  console.log(name);
-  console.log(owner);
-  console.log(totalTracks);
+  const [imgSrc, message, name, owner, totalTracks, trackName] = playlistData;
+  //   console.log(imgSrc);
+  //   console.log(message);
+  //   console.log(name);
+  //   console.log(owner);
+  //   console.log(totalTracks);
+  //   console.log(trackName);
 
   return (
     <section>
@@ -17,7 +18,10 @@ export default function Playlist({ playlistData }) {
       <p>{message}</p>
       <p>{name}</p>
       <p>Created by: {owner}</p>
-      <p>{totalTracks}songs</p>
+      <p>
+        {totalTracks} {""}songs
+      </p>
+      <p>{trackName}</p>
     </section>
   );
 }
