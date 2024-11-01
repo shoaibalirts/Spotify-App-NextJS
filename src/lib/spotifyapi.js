@@ -47,7 +47,7 @@ export async function getAlbumsTracks(id) {
   }
 }
 
-///// working on categories /////
+///// categories /////
 export async function getCategories() {
   const cookieStore = await cookies();
   const token = cookieStore.get("token_cookie");
@@ -70,7 +70,7 @@ export async function getCategories() {
     console.log(error);
   }
 }
-// fetching playlists and not genres
+// fetching playlists
 export async function getPlayListAgainstCategory(id) {
   const cookieStore = await cookies();
   const token = cookieStore.get("token_cookie");
@@ -115,6 +115,53 @@ export async function getUserSavedAlbums() {
   }
 }
 
+// Get Featured Playlists on Friday 01-11-2024
+export async function getFeaturedPlayLists() {
+  const cookieStore = await cookies();
+  const token = cookieStore.get("token_cookie");
+
+  try {
+    const response = await fetch(
+      "https://api.spotify.com/v1/browse/featured-playlists?limit=50",
+      {
+        headers: {
+          Authorization: `Bearer ${token.value})}`,
+        },
+      }
+    );
+    const data = await response.json();
+
+    // console.log(data);
+
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+// fetching playlist single item data against id
+export async function getTracksAgainstPlaylistId(playlistId) {
+  const cookieStore = await cookies();
+  const token = cookieStore.get("token_cookie");
+
+  try {
+    const response = await fetch(
+      `https://api.spotify.com/v1/playlists/${playlistId}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token.value})}`,
+        },
+      }
+    );
+    const data = await response.json();
+
+    // console.log(data);
+
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+}
 /*
 export async function getAlbums(id) {
   const cookieStore = await cookies();

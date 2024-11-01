@@ -11,7 +11,7 @@ export default function FeaturedPage() {
   const [albums, setAlbums] = useState(null);
   const router = useRouter();
 
-  if (albums) console.log(albums);
+  // if (albums != null) console.log(albums);
 
   useEffect(() => {
     const hash = window.location.hash; //true/false
@@ -65,7 +65,9 @@ export default function FeaturedPage() {
       <p>
         <Link href={`/usersavedalbums`}>User Saved Albums</Link>
       </p>
-
+      <p>
+        <Link href={`/playlist`}>Get Play List</Link>
+      </p>
       <h2>Featured</h2>
       <section className="flex flex-col gap-4 items-center">
         {albums

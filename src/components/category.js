@@ -15,12 +15,12 @@ export default function Category({ catId, catName, children }) {
   function fetchCategoryData(catId) {
     setIsOpen((prevState) => !prevState);
     // to fetch data from api
-    async function fetchGenres() {
+    async function fetchPlaylist() {
       // console.log(key);
 
       categoryList = await getPlayListAgainstCategory(catId);
-      console.log(categoryList);
-      console.log(categoryList.message);
+      // console.log(categoryList);
+      // console.log(categoryList.message);
       // console.log(categoryList.playlists.items[0].id);
       // setList(categoryList.playlists.items[0].id);
       setList(
@@ -29,9 +29,30 @@ export default function Category({ catId, catName, children }) {
         })
       );
     }
-    fetchGenres();
+    fetchPlaylist();
     console.log(list);
   }
+
+  // onClick play list item as given below
+  function fetchPlayListItem(playlistId) {
+    async function playListItem() {
+      const playlistItemData = await getPlayListItemAgainstPlaylistId(
+        playlistId
+      ); // Api
+      console.log("");
+    }
+    playListItem();
+  }
+  // function listItem(list) {
+  //  list.map((item)=>(
+  //   <ul>
+  //     <li className="list">
+  //       <button onClick={()=>fetchPlayListItem(id)}>{item.props.children}</button>
+  //     </li>
+  //   </ul>
+  //   <button></button>
+  //  ));
+  // }
   return (
     <>
       <button onClick={() => fetchCategoryData(catId)}>{children}</button>
