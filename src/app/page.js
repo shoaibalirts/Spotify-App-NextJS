@@ -1,7 +1,13 @@
 // const querystring = require("querystring");
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
+
 import Login from "@/components/login";
 
-export default function Home() {
+export default async function Home() {
+  const cookieStore = await cookies();
+  const tokenCookie = cookieStore.get("token_cookie");
+
   const authEndPoint = "https://accounts.spotify.com/authorize";
   const redirectUri = "http://localhost:3000/featured";
   const clientId = process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID;
@@ -17,6 +23,10 @@ client_id=${clientId}
 &scope=${scopes.join("%20")}
 &response_type=token
 &show_dialog=true`;
+  // conditional rendering
+  if (tokenCookie) {
+    redirect("/featured");
+  }
   return <Login loginData={loginUrl} />;
 }
 
