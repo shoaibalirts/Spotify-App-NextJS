@@ -9,8 +9,8 @@ export default function Playlist({ playlistData }) {
   //   console.log(trackItems);
 
   return (
-    <Link href={`/playlist/${id}`}>
-      <section>
+    <Link href={`/playlist/${id}`} className={classes.link}>
+      <section className={classes.item}>
         <p>{message}</p>
         <p>{name}</p>
         <p>Created by: {owner}</p>
