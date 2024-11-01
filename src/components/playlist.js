@@ -1,4 +1,5 @@
 "use client";
+import classes from "./playlist.module.css";
 import Image from "next/image";
 import Link from "next/link";
 export default function Playlist({ playlistData }) {
@@ -9,7 +10,7 @@ export default function Playlist({ playlistData }) {
 
   return (
     <Link href={`/playlist/${id}`}>
-      <section className="listItem">
+      <section>
         <p>{message}</p>
         <p>{name}</p>
         <p>Created by: {owner}</p>
