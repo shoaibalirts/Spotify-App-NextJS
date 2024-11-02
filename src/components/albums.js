@@ -18,11 +18,11 @@ export default function Albums({ tracks }) {
           {tracks.map((track) => (
             // <Link href={`/artist/${track.artists[0].id}`}>
             <li key={track.name}>
-              <p>Song Name: {track.name}</p>
-              <p>Sing by: {track.artists[0].name}</p>
-              <p>Song Duration:{songDuration(track.duration_ms)}</p>
+              <h2>{track.name}</h2>
+              <p>{track.artists[0].name}</p>
+              <p>{songDuration(track.duration_ms)}</p>
 
-              <p>Artist ID: {track.artists[0].id}</p>
+              <p>trackId: {track.artists[0].id}</p>
             </li>
             // </Link>
           ))}
