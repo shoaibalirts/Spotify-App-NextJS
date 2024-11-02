@@ -139,8 +139,8 @@ export async function getFeaturedPlayLists() {
   }
 }
 
-// fetching playlist single item data against id
-export async function getTracksAgainstPlaylistId(playlistId) {
+// details of a specific playlist (according to playlist id)
+export async function getDetailsOfASpecificPlaylist(playlistId) {
   const cookieStore = await cookies();
   const token = cookieStore.get("token_cookie");
 
@@ -155,21 +155,20 @@ export async function getTracksAgainstPlaylistId(playlistId) {
     );
     const data = await response.json();
 
-    // console.log(data);
-
     return data;
   } catch (error) {
     console.log(error);
   }
 }
-/*
-export async function getAlbums(id) {
+
+// details of a specific playlist (according to playlist id)
+export async function getAPlaylistItemsContainingTracksAndEpisodes(playlistId) {
   const cookieStore = await cookies();
   const token = cookieStore.get("token_cookie");
 
   try {
     const response = await fetch(
-      `https://api.spotify.com/v1/albums/${id}/track`,
+      `https://api.spotify.com/v1/playlists/${playlistId}/tracks?limit=20`,
       {
         headers: {
           Authorization: `Bearer ${token.value})}`,
@@ -177,12 +176,9 @@ export async function getAlbums(id) {
       }
     );
     const data = await response.json();
-    // console.log(data);
 
     return data;
   } catch (error) {
     console.log(error);
   }
 }
-
-*/

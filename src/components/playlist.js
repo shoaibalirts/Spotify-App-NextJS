@@ -5,17 +5,17 @@ import Link from "next/link";
 export default function Playlist({ playlistData }) {
   console.log(playlistData);
 
-  const [id, message, name, owner, totalTracks] = playlistData;
+  const [id, imgSrc, message, name, owner, totalTracks] = playlistData;
   //   console.log(trackItems);
 
   return (
     <Link href={`/playlist/${id}`} className={classes.link}>
       <section className={classes.item}>
+        <img src={imgSrc} alt={name} width={300} height={300} />
         <p>{message}</p>
         <p>{name}</p>
         <p>Created by: {owner}</p>
         <p>{totalTracks} songs</p>
-        {/* <p>{trackItems[0].track.name}</p> */}
       </section>
     </Link>
   );

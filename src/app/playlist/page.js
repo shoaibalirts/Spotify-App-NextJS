@@ -9,8 +9,6 @@ import {
 export default async function PlayListPage() {
   const featuredPlayList = await getFeaturedPlayLists();
 
-  
-
   // let playlistData = [
   //   featuredPlayList.playlists.items[0].images[0].url,
   //   featuredPlayList.message,
@@ -21,18 +19,25 @@ export default async function PlayListPage() {
   // ];
   // console.log(playlistData);
 
-  // return <Playlist playlistData={playlistData} />;
-  console.log(featuredPlayList.playlists.items);
-  return featuredPlayList.playlists.items.map((item) => (
-    <Playlist
-      key={item.id}
-      playlistData={[
-        item.id,
-        item.message,
-        item.name,
-        item.owner.display_name,
-        item.tracks.total,
-      ]}
-    />
-  ));
+  // console.log(featuredPlayList.playlists.items);
+  return (
+    <section>
+      <h2>List of playlists</h2>
+      {featuredPlayList.playlists.items.map((item) => (
+        <article>
+          <Playlist
+            key={item.id}
+            playlistData={[
+              item.id,
+              item.images[0].url,
+              item.message,
+              item.name,
+              item.owner.display_name,
+              item.tracks.total,
+            ]}
+          />
+        </article>
+      ))}
+    </section>
+  );
 }
