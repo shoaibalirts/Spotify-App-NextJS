@@ -1,13 +1,12 @@
-// const querystring = require("querystring");
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
-import Login from "@/components/login";
+import Login from "@/app/login";
 
 export default async function Home() {
   const cookieStore = await cookies();
   const tokenCookie = cookieStore.get("token_cookie");
-
+  let loginState = false;
   const authEndPoint = "https://accounts.spotify.com/authorize";
   const redirectUri = "http://localhost:3000/featured";
   const clientId = process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID;
@@ -26,9 +25,12 @@ client_id=${clientId}
 &show_dialog=true`;
   // conditional rendering
   if (tokenCookie) {
+    loginState = true;
     redirect("/featured");
+  } else {
+    loginState = false;
   }
-  return <Login loginData={loginUrl} />;
+  return <Login loginData={loginUrl} loginState={loginState} />;
 }
 
 // "https://accounts.spotify.com/authorize?client_id=81a35df4b29149208ae83b5defff691a&redirect_uri=http://localhost:3000/featured&scope=user-read-currently-playing%20user-read-recently-played&response_type=token&&show_dialog=true"

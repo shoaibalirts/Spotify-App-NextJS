@@ -1,4 +1,4 @@
-import Albums from "@/components/albums";
+import Albums from "@/app/album/albums";
 import { getAlbumsTracks } from "@/lib/spotifyapi";
 
 export default async function PlayListPage({ params }) {

@@ -1,6 +1,11 @@
+"use client";
 import Link from "next/link";
+import { useState } from "react";
 
-export default function Login({ loginData }) {
+export default function Login({ loginData, loginState }) {
+  const [login, setLogin] = useState(loginState);
+  console.log(login);
+
   return (
     <section className="login-component">
       <h1 className="loginheader">Log In</h1>

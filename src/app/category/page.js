@@ -1,4 +1,4 @@
-import Category from "@/components/category";
+import Category from "@/app/category/category";
 import { getCategories } from "@/lib/spotifyapi";
 export default async function CategoryPage() {
   const categoryData = await getCategories();
@@ -6,9 +6,7 @@ export default async function CategoryPage() {
 
   return (
     <>
-      <header>
-        <h1>Categories List</h1>
-      </header>
+      <h1>Categories List</h1>
       <main>
         <ul>
           {categoryList.map((category) => (

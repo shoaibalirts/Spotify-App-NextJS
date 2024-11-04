@@ -1,4 +1,5 @@
 import PlaylistDetails from "@/components/playlistdetails";
+
 import { getDetailsOfASpecificPlaylist } from "@/lib/spotifyapi";
 export default async function PlaylistIdPage({ params }) {
   const { playlistID } = await params;

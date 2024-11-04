@@ -1,11 +1,12 @@
 "use client";
 import { setCookie } from "cookies-next";
-
 import { useState, useEffect } from "react";
 import { getNewReleases } from "@/lib/spotifyapi";
-import Featured from "@/components/featured";
+import Featured from "@/app/featured/featured";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import Header from "@/components/header";
+import Footer from "@/components/footer";
 
 export default function FeaturedPage() {
   const [albums, setAlbums] = useState(null);
@@ -56,10 +57,9 @@ export default function FeaturedPage() {
   // }, []);
 
   console.log(albums);
-
   return (
     <>
-      <p>
+      {/* <p>
         <Link href={`/category`}>Categories</Link>
       </p>
       <p>
@@ -67,17 +67,22 @@ export default function FeaturedPage() {
       </p>
       <p>
         <Link href={`/playlist`}>Get Play List</Link>
-      </p>
-      <h2>Featured</h2>
-      <section className="flex flex-col gap-4 items-center">
-        {albums
-          ? albums.albums.items.map((album) => (
-              <Link key={album.id} href={`/album/${album.id}`}>
-                <Featured album={album} />
-              </Link>
-            ))
-          : null}
-      </section>
+      </p> */}
+      <Header navLinks={["playlist", "category", "usersavedalbums"]}>
+        Featured
+      </Header>
+      <main>
+        <section className="flex flex-col gap-4 items-center">
+          {albums
+            ? albums.albums.items.map((album) => (
+                <Link key={album.id} href={`/album/${album.id}`}>
+                  <Featured album={album} />
+                </Link>
+              ))
+            : null}
+        </section>
+      </main>
+      <Footer footerDetails="Footer" />
     </>
   );
 }
