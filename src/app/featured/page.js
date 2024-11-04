@@ -68,7 +68,15 @@ export default function FeaturedPage() {
       <p>
         <Link href={`/playlist`}>Get Play List</Link>
       </p> */}
-      <Header navLinks={["playlist", "category", "usersavedalbums"]}>
+      <Header
+        navLinks={[
+          "playlist",
+          "category",
+          "usersavedalbums",
+          "home",
+          "signout",
+        ]}
+      >
         Featured
       </Header>
       <main>

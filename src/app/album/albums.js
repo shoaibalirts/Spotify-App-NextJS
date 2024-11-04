@@ -7,7 +7,15 @@ export default function Albums({ tracks }) {
   //   console.log(tracks[0].artists[0]);
   return (
     <>
-      <Header navLinks={["playlist", "category", "usersavedalbums"]}>
+      <Header
+        navLinks={[
+          "playlist",
+          "category",
+          "usersavedalbums",
+          "home",
+          "signout",
+        ]}
+      >
         All Songs
       </Header>
       <main>

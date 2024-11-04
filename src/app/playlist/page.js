@@ -13,7 +13,15 @@ export default async function PlayListPage() {
 
   return (
     <>
-      <Header navLinks={["playlist", "category", "usersavedalbums"]}>
+      <Header
+        navLinks={[
+          "playlist",
+          "category",
+          "usersavedalbums",
+          "home",
+          "signout",
+        ]}
+      >
         List of Playlists
       </Header>
       <main>

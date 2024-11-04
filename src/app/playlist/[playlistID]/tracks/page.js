@@ -1,19 +1,29 @@
 "use server";
-import { getAPlaylistItemsContainingTracksAndEpisodes } from "@/lib/spotifyapi";
+import {
+  getAPlaylistItemsContainingTracksAndEpisodes,
+  getFeaturedPlayLists,
+} from "@/lib/spotifyapi";
 import Playlisttracks from "@/app/playlist/[playlistID]/tracks/playlisttracks";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 export default async function TracksPage({ params }) {
   const { playlistID } = await params;
-
   const tracksData = await getAPlaylistItemsContainingTracksAndEpisodes(
     playlistID
   );
-  // console.log(tracksData.items[0].track);
+  console.log(tracksData.items[0].track);
 
   return (
     <>
-      <Header navLinks={["playlist", "category", "usersavedalbums"]}>
+      <Header
+        navLinks={[
+          "playlist",
+          "category",
+          "usersavedalbums",
+          "home",
+          "signout",
+        ]}
+      >
         Tracks
       </Header>
       <main>
@@ -24,6 +34,7 @@ export default async function TracksPage({ params }) {
                 <li key={item.track.name}>
                   <Playlisttracks
                     tracksData={{
+                      imgSrc: item.track.album.images[1],
                       trackTitle: item.track.name,
                       albumName: item.track.album.name,
                       createdDate: item.added_at,
