@@ -1,6 +1,8 @@
 "use server";
 import { getAPlaylistItemsContainingTracksAndEpisodes } from "@/lib/spotifyapi";
 import Playlisttracks from "@/app/playlist/[playlistID]/tracks/playlisttracks";
+import Header from "@/components/header";
+import Footer from "@/components/footer";
 export default async function TracksPage({ params }) {
   const { playlistID } = await params;
 
@@ -11,7 +13,9 @@ export default async function TracksPage({ params }) {
 
   return (
     <>
-      <h2>Tracks</h2>
+      <Header navLinks={["playlist", "category", "usersavedalbums"]}>
+        Tracks
+      </Header>
       <main>
         <section>
           <ul>
@@ -32,6 +36,7 @@ export default async function TracksPage({ params }) {
           </ul>
         </section>
       </main>
+      <Footer />
     </>
   );
 }

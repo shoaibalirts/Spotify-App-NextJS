@@ -10,7 +10,7 @@ export default function Playlist({ playlistData }) {
     <Link href={`/playlist/${id}/tracks`} className={classes.link}>
       <section className={classes.item}>
         <img src={imgSrc} alt={name} width={300} height={300} />
-        <p>{message}</p>
+        {/* <p>{message}</p> */}
         <p>{name}</p>
         <p>Created by: {owner}</p>
         <p>{totalTracks} songs</p>

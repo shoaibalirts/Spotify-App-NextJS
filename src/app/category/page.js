@@ -1,6 +1,7 @@
 import Category from "@/app/category/category";
 import { getCategories } from "@/lib/spotifyapi";
 import Header from "@/components/header";
+import Footer from "@/components/footer";
 export default async function CategoryPage() {
   const categoryData = await getCategories();
   const categoryList = categoryData.categories.items;
@@ -21,6 +22,7 @@ export default async function CategoryPage() {
           ))}
         </ul>
       </main>
+      <Footer />
     </>
   );
 }

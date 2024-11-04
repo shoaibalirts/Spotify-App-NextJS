@@ -1,6 +1,8 @@
 "use server";
 
 import Playlist from "@/app/playlist/playlist";
+import Footer from "@/components/footer";
+import Header from "@/components/header";
 import {
   getFeaturedPlayLists,
   getTracksAgainstPlaylistId,
@@ -11,7 +13,9 @@ export default async function PlayListPage() {
 
   return (
     <>
-      <h1>List of playlists</h1>
+      <Header navLinks={["playlist", "category", "usersavedalbums"]}>
+        List of Playlists
+      </Header>
       <main>
         <section>
           {featuredPlayList.playlists.items.map((item) => (
@@ -31,6 +35,7 @@ export default async function PlayListPage() {
           ))}
         </section>
       </main>
+      <Footer />
     </>
   );
 }
