@@ -7,6 +7,7 @@ export default async function TracksPage({ params }) {
   const tracksData = await getAPlaylistItemsContainingTracksAndEpisodes(
     playlistID
   );
+  // console.log(tracksData.items[0].track);
 
   return (
     <section>
