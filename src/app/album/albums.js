@@ -1,13 +1,15 @@
 import GetDurationInMinAndSec from "@/utility/getDurationInMinAndSec";
 import Link from "next/link";
-
+import Header from "@/components/header";
 export default function Albums({ tracks }) {
   console.log(tracks);
   //   console.log(tracks[0].artists[0].id);
   //   console.log(tracks[0].artists[0]);
   return (
     <>
-      <header>All Songs</header>
+      <Header navLinks={["playlist", "category", "usersavedalbums"]}>
+        All Songs
+      </Header>
       <main>
         <ul>
           {tracks.map((track) => (
