@@ -1,9 +1,13 @@
 "use server";
+import { redirect } from "next/dist/server/api-utils";
 import { cookies } from "next/headers";
 
 export async function getNewReleases() {
   const cookieStore = await cookies();
   const token = cookieStore.get("token_cookie");
+  // if (token === undefined) {
+  //   redirect("/");
+  // }
   const tokenData = JSON.parse(cookieStore.get("token_cookie").value);
 
   console.log("token", token);

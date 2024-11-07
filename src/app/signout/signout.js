@@ -7,11 +7,9 @@ export default function Signout() {
 
   const router = useRouter();
   function handleConfirm(event) {
-    // event.target.preventDefault();
     const btnValue = event.target.value;
     if (btnValue === "yes") {
       deleteCookie("token_cookie");
-
       setConfirm(false);
       router.push("/");
     } else if (btnValue === "no") {
@@ -22,7 +20,7 @@ export default function Signout() {
   return (
     <main>
       <dialog open={confirm}>
-        <h2>You are being Signout?</h2>
+        <h2>You are about to Signout?</h2>
         <form method="dialog">
           <button type="submit" value="yes" onClick={handleConfirm}>
             Yes
