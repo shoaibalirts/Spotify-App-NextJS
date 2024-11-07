@@ -4,6 +4,8 @@ import { cookies } from "next/headers";
 export async function getNewReleases() {
   const cookieStore = await cookies();
   const token = cookieStore.get("token_cookie");
+  const tokenData = JSON.parse(cookieStore.get("token_cookie").value);
+
   console.log("token", token);
 
   try {
@@ -11,7 +13,7 @@ export async function getNewReleases() {
       "https://api.spotify.com/v1/browse/new-releases?limit=10",
       {
         headers: {
-          Authorization: `Bearer ${token.value}`,
+          Authorization: `Bearer ${tokenData.access_token}`,
         },
       }
     );
@@ -27,13 +29,14 @@ export async function getNewReleases() {
 export async function getAlbumsTracks(id) {
   const cookieStore = await cookies();
   const token = cookieStore.get("token_cookie");
+  const tokenData = JSON.parse(cookieStore.get("token_cookie").value);
 
   try {
     const response = await fetch(
       `https://api.spotify.com/v1/albums/${id}/tracks`,
       {
         headers: {
-          Authorization: `Bearer ${token.value})}`,
+          Authorization: `Bearer ${tokenData.access_token})}`,
         },
       }
     );
@@ -51,13 +54,14 @@ export async function getAlbumsTracks(id) {
 export async function getCategories() {
   const cookieStore = await cookies();
   const token = cookieStore.get("token_cookie");
+  const tokenData = JSON.parse(cookieStore.get("token_cookie").value);
 
   try {
     const response = await fetch(
       "https://api.spotify.com/v1/browse/categories?limit=50",
       {
         headers: {
-          Authorization: `Bearer ${token.value})}`,
+          Authorization: `Bearer ${tokenData.access_token})}`,
         },
       }
     );
@@ -74,13 +78,14 @@ export async function getCategories() {
 export async function getPlayListAgainstCategory(id) {
   const cookieStore = await cookies();
   const token = cookieStore.get("token_cookie");
+  const tokenData = JSON.parse(cookieStore.get("token_cookie").value);
 
   try {
     const response = await fetch(
       `https://api.spotify.com/v1/browse/categories/${id}/playlists`,
       {
         headers: {
-          Authorization: `Bearer ${token.value})}`,
+          Authorization: `Bearer ${tokenData.access_token})}`,
         },
       }
     );
@@ -98,11 +103,12 @@ export async function getPlayListAgainstCategory(id) {
 export async function getUserSavedAlbums() {
   const cookieStore = await cookies();
   const token = cookieStore.get("token_cookie");
+  const tokenData = JSON.parse(cookieStore.get("token_cookie").value);
 
   try {
     const response = await fetch("https://api.spotify.com/v1/me/albums", {
       headers: {
-        Authorization: `Bearer ${token.value})}`,
+        Authorization: `Bearer ${tokenData.access_token})}`,
       },
     });
     const data = await response.json();
@@ -119,13 +125,14 @@ export async function getUserSavedAlbums() {
 export async function getFeaturedPlayLists() {
   const cookieStore = await cookies();
   const token = cookieStore.get("token_cookie");
+  const tokenData = JSON.parse(cookieStore.get("token_cookie").value);
 
   try {
     const response = await fetch(
       "https://api.spotify.com/v1/browse/featured-playlists?limit=50",
       {
         headers: {
-          Authorization: `Bearer ${token.value})}`,
+          Authorization: `Bearer ${tokenData.access_token})}`,
         },
       }
     );
@@ -143,13 +150,14 @@ export async function getFeaturedPlayLists() {
 export async function getDetailsOfASpecificPlaylist(playlistId) {
   const cookieStore = await cookies();
   const token = cookieStore.get("token_cookie");
+  const tokenData = JSON.parse(cookieStore.get("token_cookie").value);
 
   try {
     const response = await fetch(
       `https://api.spotify.com/v1/playlists/${playlistId}`,
       {
         headers: {
-          Authorization: `Bearer ${token.value})}`,
+          Authorization: `Bearer ${tokenData.access_token})}`,
         },
       }
     );
@@ -165,13 +173,14 @@ export async function getDetailsOfASpecificPlaylist(playlistId) {
 export async function getAPlaylistItemsContainingTracksAndEpisodes(playlistId) {
   const cookieStore = await cookies();
   const token = cookieStore.get("token_cookie");
+  const tokenData = JSON.parse(cookieStore.get("token_cookie").value);
 
   try {
     const response = await fetch(
       `https://api.spotify.com/v1/playlists/${playlistId}/tracks?limit=20`,
       {
         headers: {
-          Authorization: `Bearer ${token.value})}`,
+          Authorization: `Bearer ${tokenData.access_token})}`,
         },
       }
     );
