@@ -8,15 +8,7 @@ export default async function CategoryPage() {
 
   return (
     <>
-      <Header
-        navLinks={[
-          "playlist",
-          "category",
-          "usersavedalbums",
-          "home",
-          "signout",
-        ]}
-      >
+      <Header navLinks={["playlist", "usersavedalbums", "featured"]}>
         All Categories
       </Header>
       <main>

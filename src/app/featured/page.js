@@ -26,15 +26,7 @@ export default async function FeaturedPage() {
       <p>
         <Link href={`/playlist`}>Get Play List</Link>
       </p> */}
-      <Header
-        navLinks={[
-          "playlist",
-          "category",
-          "usersavedalbums",
-          "home",
-          "signout",
-        ]}
-      >
+      <Header navLinks={["playlist", "category", "usersavedalbums"]}>
         Featured
       </Header>
       <main>

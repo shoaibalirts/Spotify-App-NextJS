@@ -8,15 +8,7 @@ export default async function UserSavedAlbumsPage() {
 
   return (
     <>
-      <Header
-        navLinks={[
-          "playlist",
-          "category",
-          "usersavedalbums",
-          "home",
-          "signout",
-        ]}
-      >
+      <Header navLinks={["featured", "playlist", "category"]}>
         User Saved Albums
       </Header>
       <main>

@@ -16,13 +16,7 @@ export default async function TracksPage({ params }) {
   return (
     <>
       <Header
-        navLinks={[
-          "playlist",
-          "category",
-          "usersavedalbums",
-          "home",
-          "signout",
-        ]}
+        navLinks={["playlist", "category", "usersavedalbums", "featured"]}
       >
         Tracks
       </Header>
