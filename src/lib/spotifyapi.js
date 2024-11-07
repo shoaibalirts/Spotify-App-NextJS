@@ -191,3 +191,10 @@ export async function getAPlaylistItemsContainingTracksAndEpisodes(playlistId) {
     console.log(error);
   }
 }
+
+export async function deleteCookie(name) {
+  const cookieStore = await cookies();
+  (await cookies()).delete(name);
+
+  return null;
+}
