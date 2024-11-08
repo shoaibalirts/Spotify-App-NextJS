@@ -202,3 +202,9 @@ export async function deleteCookie(name) {
 
   return null;
 }
+export async function hasCookie(name) {
+  const cookieStore = await cookies();
+  const hasCookie1 = cookieStore.has(name);
+
+  return hasCookie1;
+}

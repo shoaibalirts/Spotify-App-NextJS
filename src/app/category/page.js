@@ -3,13 +3,14 @@ import { getCategories } from "@/lib/spotifyapi";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 export default async function CategoryPage() {
+  const titlePage = "All Categories";
   const categoryData = await getCategories();
   const categoryList = categoryData.categories.items;
 
   return (
     <>
       <Header navLinks={["playlist", "usersavedalbums", "featured"]}>
-        All Categories
+        {titlePage}
       </Header>
       <main>
         <ul>

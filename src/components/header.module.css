@@ -1,0 +1,21 @@
+.header {
+  background-color: red;
+  .list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .signout {
+      color: white;
+      border: none;
+      &:hover {
+        color: black;
+      }
+    }
+    .heading {
+      font-size: 2rem;
+    }
+    .menu {
+      flex-direction: column;
+    }
+  }
+}
