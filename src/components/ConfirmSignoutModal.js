@@ -1,4 +1,8 @@
-export default function ConfirmSignoutModal({ onConfirm, onCancel }) {
+export default function ConfirmSignoutModal({
+  onConfirm,
+  onCancel,
+  showModal,
+}) {
   return (
     <>
       <dialog open={showModal}>

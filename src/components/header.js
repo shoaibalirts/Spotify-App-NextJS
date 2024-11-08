@@ -67,7 +67,7 @@ export default function Header({ navLinks, children }) {
                 Signout
               </button>
             ) : (
-              <p>Logging...</p>
+              <p>Logging...........</p>
             )}
           </li>
         </ul>
@@ -79,6 +79,7 @@ export default function Header({ navLinks, children }) {
             setShowModal(false);
           }}
           onCancel={() => setShowModal(false)}
+          showModal={showModal}
         />
       )}
     </header>
