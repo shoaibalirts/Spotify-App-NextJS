@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import ConfirmSignoutModal from "./ConfirmSignoutModal";
 import { deleteCookie, hasCookie } from "@/lib/spotifyapi";
 import Navlinks from "./navlinks";
+
 export default function Header({ navLinks, children }) {
   const [showModal, setShowModal] = useState(false);
   const [hasMyCookie, setHasMyCookie] = useState(false);
@@ -31,14 +32,16 @@ export default function Header({ navLinks, children }) {
       <nav className={classes.nav}>
         <ul className={classes.list}>
           <li>
-            <Image
-              src="/images/leftarrow.png"
-              priority
-              alt="left arrow"
-              width={20}
-              height={20}
-              style={{ filter: "invert(1)" }} 
-            />
+            <Link href="#">
+              <Image
+                src="/images/leftarrow.png"
+                priority
+                alt="left arrow"
+                width={20}
+                height={20}
+                style={{ filter: "invert(1)" }}
+              />
+            </Link>
           </li>
           <li className={classes.heading}>{children}</li>
           <li>

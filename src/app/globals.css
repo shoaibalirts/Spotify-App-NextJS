@@ -1,13 +1,14 @@
-/* @tailwind base;
+@tailwind base;
 @tailwind components;
-@tailwind utilities; */
+@tailwind utilities;
+/*
 @layer customComponents;
 @layer customComponents {
   li {
     list-style: none;
   }
   button {
-    background-color: rgba(255, 60, 0, 0.438); /* Green */
+    background-color: rgba(255, 60, 0, 0.438); 
     color: black;
     padding: 15px 32px;
     text-align: center;
@@ -25,7 +26,6 @@
   }
   .list {
     margin-left: 1rem;
-    /* background-color: rgba(128, 128, 128, 0.402); */
   }
   .savedalbumsarticle {
     background-color: rgba(128, 128, 128, 0.456);
@@ -35,6 +35,7 @@
     margin-bottom: 1rem;
   }
 }
+  */
 /*
 
 @layer reset, base1, navigation, components1;
