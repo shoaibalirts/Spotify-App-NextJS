@@ -6,9 +6,11 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import ConfirmSignoutModal from "./ConfirmSignoutModal";
 import { deleteCookie, hasCookie } from "@/lib/spotifyapi";
+import Navlinks from "./navlinks";
 export default function Header({ navLinks, children }) {
   const [showModal, setShowModal] = useState(false);
   const [hasMyCookie, setHasMyCookie] = useState(false);
+  const [showNavSideBarLinks, setShowNavSideBarLinks] = useState(false);
   const router = useRouter();
   function handleSignout() {
     deleteCookie("token_cookie");
@@ -20,6 +22,10 @@ export default function Header({ navLinks, children }) {
   useEffect(() => {
     checkCookie();
   }, []);
+
+  function showNavSideBar() {
+    setShowNavSideBarLinks((prevState) => !prevState);
+  }
   return (
     <header className={classes.header}>
       <nav className={classes.nav}>
@@ -31,7 +37,7 @@ export default function Header({ navLinks, children }) {
               alt="left arrow"
               width={20}
               height={20}
-              style={{ filter: "invert(1)" }}
+              style={{ filter: "invert(1)" }} 
             />
           </li>
           <li className={classes.heading}>{children}</li>
@@ -45,17 +51,7 @@ export default function Header({ navLinks, children }) {
               style={{ filter: "invert(1)" }}
             />
           </li>
-          <li>
-            <ul className={classes.menu}>
-              {navLinks.map((navlink) => (
-                <li key={navlink}>
-                  <Link href={`/${navlink}`} priority="true">
-                    {navlink}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </li>
+
           <li>
             {hasMyCookie ? (
               <button
@@ -70,6 +66,10 @@ export default function Header({ navLinks, children }) {
               <p>Logging...........</p>
             )}
           </li>
+
+          <li>
+            <button onClick={showNavSideBar}>Menu</button>
+          </li>
         </ul>
       </nav>
       {showModal && (
@@ -82,6 +82,7 @@ export default function Header({ navLinks, children }) {
           showModal={showModal}
         />
       )}
+      {showNavSideBarLinks && <Navlinks navLinks={navLinks} />}
     </header>
   );
 }
