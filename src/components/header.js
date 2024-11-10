@@ -27,6 +27,9 @@ export default function Header({ navLinks, children }) {
   function showNavSideBar() {
     setShowNavSideBarLinks((prevState) => !prevState);
   }
+  function handleBack() {
+    router.back();
+  }
   return (
     <header className={classes.header}>
       <nav className={classes.nav}>
@@ -40,6 +43,7 @@ export default function Header({ navLinks, children }) {
                 width={20}
                 height={20}
                 style={{ filter: "invert(1)" }}
+                onClick={handleBack}
               />
             </Link>
           </li>
