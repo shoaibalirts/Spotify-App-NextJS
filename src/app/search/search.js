@@ -1,10 +1,13 @@
 "use client";
 import Header from "@/components/header";
+import { useState } from "react";
 import { getSearchForItem } from "@/lib/spotifyapi";
 export default function Search() {
+  const [results, setResults] = useState();
   function getSelectedValue(e) {
     console.log(e.target.value);
   }
+  let searchResults;
 
   async function submitHandler(event) {
     event.preventDefault();
@@ -16,7 +19,7 @@ export default function Search() {
     console.log(filteredCollection);
 
     let multipleTypes = Array.from(filteredCollection)
-      .map((item) => item.textContent)
+      .map((item) => item.value)
       .join(",");
 
     // console.log(multipleTypes);
@@ -24,7 +27,8 @@ export default function Search() {
     // console.log(filter);
     // console.log(query);
 
-    let searchResults = await getSearchForItem(query, multipleTypes);
+    searchResults = await getSearchForItem(query, multipleTypes);
+    setResults(searchResults);
     console.log(searchResults);
   }
   return (
@@ -48,7 +52,16 @@ export default function Search() {
           <input type="search" name="enteredText" />
         </label>
       </form>
-      <ul>{/* {searchResults.map(item)=>(<li key={item}></li>)} */}</ul>
+      <ul>
+        {results
+          ? Object.entries(results).map(([key, innerObject]) => (
+              <h3 key={key}>{key}</h3>
+              // {innerObject.items.map((item)=>(
+              //   <p>{album_type}</p>
+              // ))}
+            ))
+          : ""}
+      </ul>
     </>
   );
 }
