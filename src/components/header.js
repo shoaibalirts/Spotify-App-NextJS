@@ -30,33 +30,34 @@ export default function Header({ navLinks, children }) {
   function handleBack() {
     router.back();
   }
+
   return (
     <header className={classes.header}>
       <nav className={classes.nav}>
         <ul className={classes.list}>
           <li>
-            <Link href="#">
-              <Image
-                src="/images/leftarrow.png"
-                priority
-                alt="left arrow"
-                width={20}
-                height={20}
-                style={{ filter: "invert(1)" }}
-                onClick={handleBack}
-              />
-            </Link>
-          </li>
-          <li className={classes.heading}>{children}</li>
-          <li>
             <Image
-              src="/images/search.png"
+              src="/images/leftarrow.png"
               priority
-              alt="left arrow"
+              alt="left arrow to go back to the previous visited page"
               width={20}
               height={20}
               style={{ filter: "invert(1)" }}
+              onClick={handleBack}
             />
+          </li>
+          <li className={classes.heading}>{children}</li>
+          <li>
+            <Link href="/search" alt="search page ">
+              <Image
+                src="/images/search.png"
+                priority
+                alt="search via spotify api"
+                width={20}
+                height={20}
+                style={{ filter: "invert(1)" }}
+              />
+            </Link>
           </li>
 
           <li>
