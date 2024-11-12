@@ -213,8 +213,7 @@ export async function getSearchForItem(query, multipleTypes) {
   const cookieStore = await cookies();
   const token = cookieStore.get("token_cookie");
   const tokenData = JSON.parse(cookieStore.get("token_cookie").value);
-  // array destructured
-  // const [filteredValue1, filteredValue2] = filteredCollection;
+
   try {
     const response = await fetch(
       `https://api.spotify.com/v1/search?q=${query}&type=${multipleTypes}&limit=10`,

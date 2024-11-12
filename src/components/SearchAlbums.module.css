@@ -1,0 +1,15 @@
+.album {
+  display: block;
+  width: 375px;
+  height: 375px;
+  text-align: center;
+  margin-bottom: 2rem;
+  background-color: black;
+  color: white;
+
+  .image {
+    /* display: block; */
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
