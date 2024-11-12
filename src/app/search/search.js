@@ -77,29 +77,8 @@ export default function Search() {
         : [],
     });
     // console.log(searchResults[Object.keys(searchResults)[0]]); // results["albums"] should consol albums object
-
-    /*
-    // Flatten results from all categories (like albums, artists, etc.) into a single array
-    const allResults = Object.keys(searchResults)
-      .map((key) => searchResults[key].items) // Get items for each category
-      .flat(); // Flatten nested arrays into one array
-
-    setResults(allResults);
-    */
   }
-  /*
-  function renderObjectData() {
-    return (
-      <ul>
-        {results.map((item, index) => (
-          <li key={index}>
-            <h3>{item.name}</h3>
-          </li>
-        ))}
-      </ul>
-    );
-  }
-  */
+
   function renderSelectedCategoryData() {
     if (selectedCategory === "albums") {
       return <SearchAlbums results={results} />;
@@ -116,7 +95,8 @@ export default function Search() {
     } else if (selectedCategory === "audiobooks") {
       return <SearchAudiobooks results={results} />;
     } else {
-      return <p>Select a category to view results.</p>;
+      return <SearchAlbums results={results} />;
+      // return <p>Select a category to view results.</p>;
     }
   }
   function openDropdown() {

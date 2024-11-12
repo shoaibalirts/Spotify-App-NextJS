@@ -1,12 +1,13 @@
 "use client";
 import Image from "next/image";
-import classes from "./SearchAlbums.module.css";
+import classes from "./SearchMultipleItems.module.css";
 export default function SearchAlbums({ results }) {
   return (
     <ul>
+      <h2 className={classes.header}>Albums</h2>
       {results.albums.map((album, index) => (
         <li key={`album-${index}`}>
-          <article className={classes.album}>
+          <article className={classes.article}>
             <h3>Album: {album.name}</h3>
             <Image
               className={classes.image}
