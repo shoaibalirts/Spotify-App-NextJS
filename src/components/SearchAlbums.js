@@ -19,7 +19,6 @@ export default function SearchAlbums({ results }) {
             <time dateTime="2018-07-07">Released on: {album.release_date}</time>
             <p>Total Tracks: {album.total_tracks}</p>
           </article>
-          {/* Add other album details if needed */}
         </li>
       ))}
     </ul>

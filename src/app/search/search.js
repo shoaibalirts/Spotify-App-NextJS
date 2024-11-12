@@ -9,10 +9,35 @@ import SearchTracks from "@/components/SearchTracks";
 import SearchShows from "@/components/SearchShows";
 import SearchEpisodes from "@/components/SearchEpisodes";
 import SearchAudiobooks from "@/components/SearchAudiobooks";
+import classes from "./search.module.css";
 
 export default function Search() {
   const [results, setResults] = useState({ albums: [], artists: [] });
   const [selectedCategory, setSelectedCategory] = useState(null); // Track which category is selected
+  const [optionSize, setOptionSize] = useState(2);
+
+  // State to hold multiple selected categories
+  const [selectedCategories, setSelectedCategories] = useState([]);
+
+  // Available categories
+  const categories = [
+    "albums",
+    "artists",
+    "playlists",
+    "tracks",
+    "shows",
+    "episodes",
+    "audiobooks",
+  ];
+  // Toggle a category in the selection
+  const toggleCategory = (category) => {
+    setSelectedCategories(
+      (prevSelected) =>
+        prevSelected.includes(category)
+          ? prevSelected.filter((item) => item !== category) // Remove if already selected
+          : [...prevSelected, category] // Add if not selected
+    );
+  };
 
   let data;
   let searchResults;
@@ -52,13 +77,7 @@ export default function Search() {
         : [],
     });
     // console.log(searchResults[Object.keys(searchResults)[0]]); // results["albums"] should consol albums object
-    /*
-    let myObjResult;
-    for (let i = 0; i < Object.keys(searchResults).length; i++) {
-      myObjResult[i] = await searchResults[Object.keys(searchResults)[i]];
-    }
-    setResults(myObjResult);
-    */
+
     /*
     // Flatten results from all categories (like albums, artists, etc.) into a single array
     const allResults = Object.keys(searchResults)
@@ -100,45 +119,94 @@ export default function Search() {
       return <p>Select a category to view results.</p>;
     }
   }
+  function openDropdown() {
+    setOptionSize(7);
+  }
   return (
-    <>
-      <form onSubmit={submitHandler}>
-        <p>
-          <label htmlFor="searchtype">Select Search Type: </label>
-          <select multiple required id="searchtype" name="filter">
-            <option value="">Select...</option>
-            <option value="album">album</option>
-            <option value="artist">artist</option>
-            <option value="playlist">playlist</option>
-            <option value="track">track</option>
-            <option value="show">show</option>
-            <option value="episode">episode</option>
-            <option value="audiobook">audiobook</option>
-          </select>
-        </p>
-        <label>
-          Type what you want to search:{" "}
-          <input type="search" name="enteredText" />
-        </label>
-      </form>
-      {/* <ul>{results ? <p>{results[0].items[0].album_type}</p> : ""}</ul> */}
-      <div>
-        <button onClick={() => setSelectedCategory("albums")}>Albums</button>
-        <button onClick={() => setSelectedCategory("artists")}>Artists</button>
-        <button onClick={() => setSelectedCategory("playlists")}>
-          Playlists
-        </button>
-        <button onClick={() => setSelectedCategory("tracks")}>Tracks</button>
-        <button onClick={() => setSelectedCategory("shows")}>Shows</button>
-        <button onClick={() => setSelectedCategory("episodes")}>
-          Episodes
-        </button>
-        <button onClick={() => setSelectedCategory("audiobooks")}>
-          Audiobooks
-        </button>
-      </div>
-      {/* {renderObjectData()} */}
-      {renderSelectedCategoryData()}
-    </>
+    <section className={classes.searchpage}>
+      <section className={classes.userinput}>
+        <form onSubmit={submitHandler} className={classes.form}>
+          <p className={classes.dropdown}>
+            <label htmlFor="searchtype">Select One or multiple items: </label>
+            <select
+              className={classes.select}
+              multiple
+              required
+              id="searchtype"
+              name="filter"
+              size={optionSize}
+              onClick={openDropdown}
+            >
+              {/* <option value="">Select...</option> */}
+              <option value="album">album</option>
+              <option value="artist">artist</option>
+              <option value="playlist">playlist</option>
+              <option value="track">track</option>
+              <option value="show">show</option>
+              <option value="episode">episode</option>
+              <option value="audiobook">audiobook</option>
+            </select>
+          </p>
+          <label>
+            Search Item:{" "}
+            <input
+              type="search"
+              name="enteredText"
+              className={classes.formlabel}
+            />
+          </label>
+        </form>
+        <section className={classes.buttons}>
+          {/* conditional rendering here...*/}
+
+          <button
+            onClick={() => setSelectedCategory("albums")}
+            className={classes.categorybutton}
+          >
+            Albums
+          </button>
+          <button
+            onClick={() => setSelectedCategory("artists")}
+            className={classes.categorybutton}
+          >
+            Artists
+          </button>
+          <button
+            onClick={() => setSelectedCategory("playlists")}
+            className={classes.categorybutton}
+          >
+            Playlists
+          </button>
+          <button
+            onClick={() => setSelectedCategory("tracks")}
+            className={classes.categorybutton}
+          >
+            Tracks
+          </button>
+          <button
+            onClick={() => setSelectedCategory("shows")}
+            className={classes.categorybutton}
+          >
+            Shows
+          </button>
+          <button
+            onClick={() => setSelectedCategory("episodes")}
+            className={classes.categorybutton}
+          >
+            Episodes
+          </button>
+          <button
+            onClick={() => setSelectedCategory("audiobooks")}
+            className={classes.categorybutton}
+          >
+            Audiobooks
+          </button>
+        </section>
+        {/* {renderObjectData()} */}
+      </section>
+      <section className={classes.renderbuttondata}>
+        {renderSelectedCategoryData()}
+      </section>
+    </section>
   );
 }
