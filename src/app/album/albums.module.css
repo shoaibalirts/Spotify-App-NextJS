@@ -12,6 +12,8 @@
 }
 .imagecontainer {
   flex: 0 0 auto;
+  background-color: rgb(255, 17, 104);
+  border-radius: 50%;
 }
 .nameartistcontainer {
   margin-left: 16px;

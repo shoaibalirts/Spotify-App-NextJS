@@ -13,16 +13,17 @@ export default function Featured({ album }) {
     //   <p>{album.name}</p>
     // </article>
 
-    <figure className="relative max-w-sm transition-all duration-300 cursor-pointer filter grayscale hover:grayscale-0">
+    <figure>
+      {/* className="relative max-w-sm transition-all duration-300 cursor-pointer filter grayscale hover:grayscale-0" */}
       <Image
-        className="rounded-lg"
         src={album.images[0].url}
         width={300}
         height={300}
         alt="album"
         priority={true}
       />
-      <figcaption className="absolute px-4 text-lg text-center font-bold text-white bottom-6">
+      <figcaption>
+        {/* className="absolute px-4 text-lg text-center font-bold text-white bottom-6" */}
         <p>{album.name}</p>
       </figcaption>
     </figure>

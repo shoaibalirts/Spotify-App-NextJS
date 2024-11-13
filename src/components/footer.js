@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer className={classes.footer}>
       <Image
-        src="/images/signalfooter.svg"
+        src="/images/listfooter.svg"
         width={20}
         height={20}
         alt="categories icon"

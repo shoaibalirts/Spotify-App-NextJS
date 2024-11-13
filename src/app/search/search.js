@@ -103,7 +103,7 @@ export default function Search() {
     setOptionSize(7);
   }
   return (
-    <section className={classes.searchpage}>
+    <main className={classes.searchpage}>
       <section className={classes.userinput}>
         <form onSubmit={submitHandler} className={classes.form}>
           <p className={classes.dropdown}>
@@ -191,6 +191,6 @@ export default function Search() {
       <section className={classes.renderbuttondata}>
         {renderSelectedCategoryData()}
       </section>
-    </section>
+    </main>
   );
 }
