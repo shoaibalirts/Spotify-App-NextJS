@@ -1,5 +1,5 @@
 .header {
-  background-color: red;
+  background-color: var(--background-color);
   .list {
     display: flex;
     justify-content: space-between;
@@ -12,10 +12,13 @@
       }
     }
     .heading {
-      font-size: 2rem;
+      font-size: 1.5rem;
     }
     .menu {
       flex-direction: column;
     }
   }
+}
+.listImage {
+  margin: 1.4rem 1.5rem;
 }

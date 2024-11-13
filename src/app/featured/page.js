@@ -26,9 +26,7 @@ export default async function FeaturedPage() {
       <p>
         <Link href={`/playlist`}>Get Play List</Link>
       </p> */}
-      <Header navLinks={["playlist", "category", "usersavedalbums"]}>
-        Featured
-      </Header>
+      <Header>Featured</Header>
       <main>
         <section className="flex flex-col gap-4 items-center">
           {lists
@@ -40,7 +38,7 @@ export default async function FeaturedPage() {
             : null}
         </section>
       </main>
-      <Footer footerDetails="Footer" />
+      <Footer />
     </>
   );
 }

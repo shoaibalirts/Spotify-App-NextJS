@@ -33,34 +33,31 @@ export default function Header({ navLinks, children }) {
 
   return (
     <header className={classes.header}>
-      <nav className={classes.nav}>
-        <ul className={classes.list}>
-          <li>
+      <ul className={classes.list}>
+        <li className={classes.listImage}>
+          <Image
+            src="/images/leftarrow.svg"
+            priority
+            alt="left arrow to go back to the previous visited page"
+            width={20}
+            height={20}
+            onClick={handleBack}
+          />
+        </li>
+        <li className={classes.heading}>{children}</li>
+        <li className={classes.listImage}>
+          <Link href="/search" alt="search page ">
             <Image
-              src="/images/leftarrow.png"
+              src="/images/search.svg"
               priority
-              alt="left arrow to go back to the previous visited page"
+              alt="search via spotify api"
               width={20}
               height={20}
-              style={{ filter: "invert(1)" }}
-              onClick={handleBack}
             />
-          </li>
-          <li className={classes.heading}>{children}</li>
-          <li>
-            <Link href="/search" alt="search page ">
-              <Image
-                src="/images/search.png"
-                priority
-                alt="search via spotify api"
-                width={20}
-                height={20}
-                style={{ filter: "invert(1)" }}
-              />
-            </Link>
-          </li>
+          </Link>
+        </li>
 
-          {/* <li>
+        {/* <li>
             {hasMyCookie ? (
               <button
                 onClick={() => {
@@ -78,8 +75,7 @@ export default function Header({ navLinks, children }) {
           <li>
             <button onClick={showNavSideBar}>Menu</button>
           </li> */}
-        </ul>
-      </nav>
+      </ul>
       {showModal && (
         <ConfirmSignoutModal
           onConfirm={() => {
