@@ -1,17 +1,19 @@
 "use client";
-
 import Image from "next/image";
 import classes from "./footer.module.css";
+import Link from "next/link";
 export default function Footer() {
   return (
     <footer className={classes.footer}>
-      <Image
-        src="/images/listfooter.svg"
-        width={20}
-        height={20}
-        alt="categories icon"
-        priority
-      />
+      <Link href="/playlist">
+        <Image
+          src="/images/listfooter.svg"
+          width={20}
+          height={20}
+          alt="categories icon"
+          priority
+        />
+      </Link>
       <Image
         src="/images/microphonefooter.svg"
         width={20}
