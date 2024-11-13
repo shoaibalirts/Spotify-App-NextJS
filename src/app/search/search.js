@@ -14,7 +14,7 @@ import classes from "./search.module.css";
 export default function Search() {
   const [results, setResults] = useState({ albums: [], artists: [] });
   const [selectedCategory, setSelectedCategory] = useState(null); // Track which category is selected
-  const [optionSize, setOptionSize] = useState(2);
+  const [optionSize, setOptionSize] = useState(1);
 
   // State to hold multiple selected categories
   const [selectedCategories, setSelectedCategories] = useState([]);
@@ -110,14 +110,18 @@ export default function Search() {
             <label htmlFor="searchtype">Select One or multiple items: </label>
             <select
               className={classes.select}
-              multiple
               required
               id="searchtype"
               name="filter"
               size={optionSize}
               onClick={openDropdown}
+              multiple
+              defaultValue={["album"]}
             >
-              {/* <option value="">Select...</option> */}
+              <option value="option" disabled>
+                Select...
+              </option>
+
               <option value="album">album</option>
               <option value="artist">artist</option>
               <option value="playlist">playlist</option>

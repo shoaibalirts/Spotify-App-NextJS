@@ -3,7 +3,7 @@ import Search from "./search";
 export default function SearchPage() {
   return (
     <>
-      <Header />
+      <Header>Search</Header>
       <Search />
     </>
   );

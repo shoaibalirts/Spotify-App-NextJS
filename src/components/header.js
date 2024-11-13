@@ -60,7 +60,7 @@ export default function Header({ navLinks, children }) {
             </Link>
           </li>
 
-          <li>
+          {/* <li>
             {hasMyCookie ? (
               <button
                 onClick={() => {
@@ -77,7 +77,7 @@ export default function Header({ navLinks, children }) {
 
           <li>
             <button onClick={showNavSideBar}>Menu</button>
-          </li>
+          </li> */}
         </ul>
       </nav>
       {showModal && (

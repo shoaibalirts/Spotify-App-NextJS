@@ -1,0 +1,125 @@
+/* General Styles */
+/* body {
+  font-family: Arial, sans-serif;
+  background-color: #121212;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+} */
+
+.musicPlayer {
+  width: 320px;
+  background-color: #000;
+  border-radius: 20px;
+  overflow: hidden;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Header Section */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  color: #aaa;
+}
+
+.backButton {
+  background: none;
+  border: none;
+  color: #aaa;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Main Image Section */
+.mainImage {
+  position: relative;
+  margin: 20px 0;
+}
+
+.main-image .circle {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto;
+  background: rgba(255, 0, 102, 0.2); /* Layered translucent red ring */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-image .circle img {
+  width: 80%;
+  height: auto;
+  border-radius: 50%;
+}
+
+/* Song Info Section */
+.songInfo {
+  margin: 10px 0;
+}
+
+.songTitle {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.artistName {
+  font-size: 16px;
+  color: #aaa;
+}
+
+/* Progress Bar Section */
+.progressBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #aaa;
+  font-size: 12px;
+  margin: 10px 0;
+}
+
+.slider {
+  flex: 1;
+  margin: 0 10px;
+  appearance: none;
+  background: #888;
+  height: 2px;
+  cursor: pointer;
+}
+
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  background-color: #ff0066;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Controls Section */
+.controls {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+.controlButton {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.playButton {
+  font-size: 32px;
+  color: #ff0066; /* Highlight the play button */
+}
