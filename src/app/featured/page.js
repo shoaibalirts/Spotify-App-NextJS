@@ -28,6 +28,8 @@ export default async function FeaturedPage() {
       </p> */}
       <Header>Featured</Header>
       <main>
+        <h2 className="headingInGradiantColor">Featured</h2>
+
         <section className="flex flex-col gap-4 items-center">
           {lists
             ? lists.albums.items.map((album) => (

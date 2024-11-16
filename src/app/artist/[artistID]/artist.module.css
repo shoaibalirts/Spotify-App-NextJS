@@ -1,0 +1,10 @@
+.list {
+  margin: 2rem;
+}
+.gener {
+  margin: 1rem;
+  background: linear-gradient(45deg, #ee0979, #ff6a00, #ff6a00);
+  border-radius: 1rem;
+  padding: 1rem;
+  text-align: center;
+}

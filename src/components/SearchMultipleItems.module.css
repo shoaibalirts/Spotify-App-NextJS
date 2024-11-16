@@ -2,7 +2,8 @@
   text-align: center;
   font-family: Georgia, "Times New Roman", Times, serif;
   font-weight: bolder;
-  background-color: red;
+  background-color: rgb(255, 17, 104);
+
   color: white;
 }
 .article {
@@ -10,7 +11,9 @@
   width: 375px;
   text-align: center;
   margin-bottom: 1rem;
-  background-color: black;
+  /* background-color: black; */
+  background-color: rgb(229, 64, 40);
+
   color: white;
 }
 .image {

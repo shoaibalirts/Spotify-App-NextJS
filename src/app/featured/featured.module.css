@@ -1,0 +1,38 @@
+.figure {
+  position: relative; /* Create a positioning context for the caption */
+  width: 300px; /* Fixed width for the image */
+  height: 300px; /* Fixed height for the image */
+  margin: 0 auto; /* Optional: Center the figure horizontally */
+}
+
+.image {
+  width: 100%; /* Fill the figure's width */
+  height: 100%; /* Fill the figure's height */
+  display: block; /* Remove inline spacing */
+}
+
+.caption {
+  position: absolute; /* Position the caption over the image */
+  bottom: 0; /* Align the caption at the bottom of the image */
+  left: 0; /* Align to the left of the image */
+  width: 100%; /* Ensure the caption spans the image's width */
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.1
+  ); /* Semi-transparent background for readability */
+  color: white; /* Text color */
+  /* text-align: center; Center the text horizontally */
+  padding: 0.5rem; /* Add padding for better readability */
+  font-size: 1rem; /* Adjust font size as needed */
+  z-index: 1; /* Ensure the caption appears on top of the image */
+  font-weight: bold;
+  font-size: 2rem;
+}
+.soundtrack {
+  font-size: small;
+  text-align: start;
+  font-weight: normal;
+  margin-bottom: 1rem;
+}

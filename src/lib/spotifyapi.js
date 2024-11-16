@@ -196,6 +196,30 @@ export async function getAPlaylistItemsContainingTracksAndEpisodes(playlistId) {
   }
 }
 
+export async function getArtist(artistId) {
+  console.log(artistId);
+
+  const cookieStore = await cookies();
+  const token = cookieStore.get("token_cookie");
+  const tokenData = JSON.parse(cookieStore.get("token_cookie").value);
+
+  try {
+    const response = await fetch(
+      `https://api.spotify.com/v1/artists/${artistId}`,
+      {
+        headers: {
+          Authorization: `Bearer ${tokenData.access_token})}`,
+        },
+      }
+    );
+    const data = await response.json();
+
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 export async function deleteCookie(name) {
   const cookieStore = await cookies();
   (await cookies()).delete(name);

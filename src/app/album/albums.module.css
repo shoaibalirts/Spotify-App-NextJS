@@ -34,3 +34,28 @@
   flex: 0 0 auto;
   margin-right: 1rem;
 }
+
+/* Container for the circular icon */
+.playicon {
+  width: 3rem; /* Adjust the size as needed */
+  height: 3rem; /* Same as width for a perfect circle */
+  background: linear-gradient(
+    135deg,
+    #ff6a00,
+    #ee0979
+  ); /* Gradient background */
+  border-radius: 50%; /* Makes the container a circle */
+  display: flex; /* Use flexbox for centering the triangle */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Adds depth with a shadow */
+}
+
+/* Inner triangle representing the play button */
+.playtriangle {
+  width: 0;
+  height: 0;
+  border-left: 12px solid white; /* Adjust size as needed */
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+}

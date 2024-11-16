@@ -12,13 +12,14 @@ export default function Albums({ tracks }) {
     <>
       <Header>Music</Header>
       <main>
+        <h2 className="headingInGradiantColor">All Songs</h2>
+
         <ul>
-          <h2 className={classes.header}>All Songs</h2>
           {tracks.map((track) => (
-            // <Link href={`/artist/${track.artists[0].id}`}>
-            <li key={track.name} className={classes.listitem}>
-              <article className={classes.article}>
-                <div className={classes.imagecontainer}>
+            <Link href={`/artist/${track.artists[0].id}`}>
+              <li key={track.name} className={classes.listitem}>
+                <article className={classes.article}>
+                  {/* <div className={classes.imagecontainer}>
                   <Image
                     src="/images/play.svg"
                     priority
@@ -26,17 +27,22 @@ export default function Albums({ tracks }) {
                     width={20}
                     height={20}
                   />
-                </div>
-                <div className={classes.nameartistcontainer}>
-                  <h2 className={classes.trackname}>{track.name}</h2>
-                  <p className={classes.trackartist}>{track.artists[0].name}</p>
-                </div>
-                <time className={classes.timeduration}>
-                  {GetDurationInMinAndSec(track.duration_ms)}
-                </time>
-              </article>
-            </li>
-            // </Link>
+                </div> */}
+                  <div className={classes.playicon}>
+                    <div className={classes.playtriangle}></div>
+                  </div>
+                  <div className={classes.nameartistcontainer}>
+                    <h2 className={classes.trackname}>{track.name}</h2>
+                    <p className={classes.trackartist}>
+                      {track.artists[0].name}
+                    </p>
+                  </div>
+                  <time className={classes.timeduration}>
+                    {GetDurationInMinAndSec(track.duration_ms)}
+                  </time>
+                </article>
+              </li>
+            </Link>
           ))}
         </ul>
       </main>

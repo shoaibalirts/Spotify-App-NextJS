@@ -14,7 +14,7 @@ export default async function CategoryPage() {
         {titlePage}
       </Header>
       <main>
-        <h2 className={classes.header}>Categories</h2>
+        <h2 className="headingInGradiantColor">Categories</h2>
         <ul>
           {categoryList.map((category, index) => (
             <li key={category.name}>

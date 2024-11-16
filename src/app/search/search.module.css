@@ -4,7 +4,7 @@
   width: 375px;
 }
 .userinput {
-  background-color: black;
+  background-color: rgb(255, 17, 104);
   color: white;
 }
 .form {
@@ -17,7 +17,7 @@
   gap: 1rem;
 }
 .select {
-  background-color: black;
+  background-color: rgb(255, 17, 104);
   color: white;
 }
 .formlabel {
@@ -29,7 +29,8 @@
   margin-top: 3rem;
 }
 .categorybutton {
-  background-color: red;
+  background-color: rgb(229, 64, 40);
+
   color: white;
   padding: 1rem;
   margin-right: 1rem;
@@ -38,6 +39,6 @@
   border-radius: 50%;
 }
 .renderbuttondata {
-  background-color: red;
+  background-color: rgb(229, 64, 40);
   border: 1px white solid;
 }
