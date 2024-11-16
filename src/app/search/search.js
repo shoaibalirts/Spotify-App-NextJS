@@ -8,7 +8,7 @@ import SearchPlaylists from "@/components/SearchPlaylists";
 import SearchTracks from "@/components/SearchTracks";
 import SearchShows from "@/components/SearchShows";
 import SearchEpisodes from "@/components/SearchEpisodes";
-import SearchAudiobooks from "@/components/SearchAudiobooks";
+// import SearchAudiobooks from "@/components/SearchAudiobooks";
 import classes from "./search.module.css";
 
 export default function Search() {
@@ -72,9 +72,9 @@ export default function Search() {
       tracks: searchResults.tracks ? searchResults.tracks.items : [],
       shows: searchResults.shows ? searchResults.shows.items : [],
       episodes: searchResults.episodes ? searchResults.episodes.items : [],
-      audiobooks: searchResults.audiobooks
-        ? searchResults.audiobooks.items
-        : [],
+      // audiobooks: searchResults.audiobooks
+      //   ? searchResults.audiobooks.items
+      //   : [],
     });
     // console.log(searchResults[Object.keys(searchResults)[0]]); // results["albums"] should consol albums object
   }
@@ -92,8 +92,6 @@ export default function Search() {
       return <SearchShows results={results} />;
     } else if (selectedCategory === "episodes") {
       return <SearchEpisodes results={results} />;
-    } else if (selectedCategory === "audiobooks") {
-      return <SearchAudiobooks results={results} />;
     } else {
       return <SearchAlbums results={results} />;
       // return <p>Select a category to view results.</p>;
@@ -128,7 +126,7 @@ export default function Search() {
               <option value="track">track</option>
               <option value="show">show</option>
               <option value="episode">episode</option>
-              <option value="audiobook">audiobook</option>
+              {/* <option value="audiobook">audiobook</option> */}
             </select>
           </p>
           <label>
@@ -179,12 +177,12 @@ export default function Search() {
           >
             Episodes
           </button>
-          <button
+          {/* <button
             onClick={() => setSelectedCategory("audiobooks")}
             className={classes.categorybutton}
           >
             Audiobooks
-          </button>
+          </button> */}
         </section>
         {/* {renderObjectData()} */}
       </section>
