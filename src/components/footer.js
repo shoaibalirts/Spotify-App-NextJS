@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <footer className={classes.footer}>
-      <Link href="/playlist">
+      <Link href="/category">
         <Image
           src="/images/listfooter.svg"
           width={20}

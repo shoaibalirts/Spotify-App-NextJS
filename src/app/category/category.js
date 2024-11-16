@@ -1,11 +1,23 @@
 "use client";
 import { getPlayListAgainstCategory } from "@/lib/spotifyapi";
 import { useState } from "react";
-
-export default function Category({ catId, catName, children }) {
+import classes from "./category.module.css";
+export default function Category({ catId, catName, children, index }) {
   const [list, setList] = useState("");
   const [isOpen, setIsOpen] = useState(true);
   let categoryList;
+
+  // handling different background color on each item
+  const colors = [
+    classes.color0,
+    classes.color1,
+    classes.color2,
+    classes.color3,
+    classes.color4,
+    classes.color5,
+    classes.color6,
+    classes.color7,
+  ];
 
   let count = 0;
   function newKey() {
@@ -19,13 +31,18 @@ export default function Category({ catId, catName, children }) {
       // console.log(key);
 
       categoryList = await getPlayListAgainstCategory(catId);
-      // console.log(categoryList);
+      console.log(categoryList);
       // console.log(categoryList.message);
       // console.log(categoryList.playlists.items[0].id);
       // setList(categoryList.playlists.items[0].id);
       setList(
         categoryList.playlists.items.map((item) => {
-          return <p key={newKey()}>{item.name}</p>;
+          return (
+            <li key={newKey()} className={classes.dropdownlist}>
+              <p className={classes.playlistNames}>{item.name}</p>
+              <p className={classes.greaterthan}>&gt;</p>
+            </li>
+          );
         })
       );
     }
@@ -55,8 +72,14 @@ export default function Category({ catId, catName, children }) {
   // }
   return (
     <>
-      <button onClick={() => fetchCategoryData(catId)}>{children}</button>
-      {isOpen && <ul className="list">{list}</ul>}
+      <button
+        onClick={() => fetchCategoryData(catId)}
+        className={`${classes.btnlist} ${colors[index % colors.length]}`}
+      >
+        {children}
+        <span>...</span>
+      </button>
+      {isOpen && <ul>{list}</ul>}
     </>
   );
 }

@@ -1,0 +1,57 @@
+.header {
+  background: linear-gradient(45deg, #ee0979, #ff6a00, #ff6a00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 2rem 1rem;
+}
+.btnlist {
+  margin: 0.5rem 1rem;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+.dropdownlist {
+  display: flex;
+  justify-content: space-around;
+  background-color: white;
+  padding: 0.5rem;
+  margin-left: 1rem;
+}
+.playlistNames {
+  margin-left: 1rem;
+}
+.greaterthan {
+  margin-left: auto;
+  flex: 0 0 auto;
+  margin-right: 3rem;
+}
+
+.color0 {
+  background-color: rgb(255, 17, 104);
+}
+.color1 {
+  background-color: rgb(229, 64, 40);
+}
+.color2 {
+  background-color: #f18d05;
+}
+.color3 {
+  background-color: #f2bc06;
+}
+.color4 {
+  background-color: #3a7634;
+}
+.color5 {
+  background-color: #3a7634;
+}
+.color6 {
+  background-color: #0abebe;
+}
+.color7 {
+  background-color: #00a1cb;
+}
+.color8 {
+  background-color: #115793;
+}
