@@ -77,7 +77,7 @@ export default function Category({ catId, catName, children, index }) {
         className={`${classes.btnlist} ${colors[index % colors.length]}`}
       >
         {children}
-        <span>...</span>
+        <p className={classes.dots}>. . .</p>
       </button>
       {isOpen && <ul>{list}</ul>}
     </>

@@ -2,7 +2,44 @@
 import Image from "next/image";
 import classes from "./footer.module.css";
 import Link from "next/link";
+import Signout from "./signout";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { deleteCookie } from "@/lib/spotifyapi";
 export default function Footer() {
+  const [confirm, setConfirm] = useState(true);
+  const router = useRouter();
+
+  function handleSignout() {
+    console.log("clicked signout");
+
+    function handleConfirm(event) {
+      const btnValue = event.target.value;
+      if (btnValue === "yes") {
+        deleteCookie("token_cookie");
+        setConfirm(false);
+        router.push("/");
+      } else if (btnValue === "no") {
+        setConfirm(false);
+      }
+    }
+
+    return (
+      <main>
+        <dialog open={confirm}>
+          <h2>You are about to Signout?</h2>
+          <form method="dialog">
+            <button type="submit" value="yes" onClick={handleConfirm}>
+              Yes
+            </button>
+            <button type="submit" value="no" onClick={handleConfirm}>
+              No
+            </button>
+          </form>
+        </dialog>
+      </main>
+    );
+  }
   return (
     <footer className={classes.footer}>
       <Link href="/category" className={classes.footericoncontainer}>
@@ -48,7 +85,7 @@ export default function Footer() {
           priority
         />
       </Link>
-      <Link href="/category" className={classes.footericoncontainer}>
+      <div className={classes.footericoncontainer} onClick={handleSignout}>
         <Image
           className={classes.imgicon}
           src="/images/settingfooter.svg"
@@ -57,7 +94,7 @@ export default function Footer() {
           alt="setting icon"
           priority
         />
-      </Link>
+      </div>
     </footer>
   );
 }

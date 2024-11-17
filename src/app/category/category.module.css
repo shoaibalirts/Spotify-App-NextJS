@@ -3,6 +3,23 @@
   width: 100%;
   padding: 1rem;
   border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease;
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+}
+.dots {
+  margin-left: auto;
+  flex: 0 0 auto;
+  margin-right: 3rem;
+  font-weight: bolder;
+  font-size: 1.5rem;
+  color: white;
 }
 .dropdownlist {
   display: flex;
