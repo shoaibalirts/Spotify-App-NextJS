@@ -1,4 +1,5 @@
 "use client";
+import { useRef } from "react";
 import Header from "@/components/header";
 import { useState } from "react";
 import { getSearchForItem } from "@/lib/spotifyapi";
@@ -15,7 +16,8 @@ export default function Search() {
   const [results, setResults] = useState({ albums: [], artists: [] });
   const [selectedCategory, setSelectedCategory] = useState(null); // Track which category is selected
   const [optionSize, setOptionSize] = useState(1);
-
+  const inputElement = useRef("");
+  const [errorMessage, setErrorMessage] = useState("Enter to search");
   // State to hold multiple selected categories
   const [selectedCategories, setSelectedCategories] = useState([]);
 
@@ -41,6 +43,7 @@ export default function Search() {
 
   let data;
   let searchResults;
+
   function getSelectedValue(e) {
     console.log(e.target.value);
   }
@@ -53,6 +56,12 @@ export default function Search() {
     // console.log(filteredCollection[0].value);
     // console.log(filteredCollection[1].value);
     console.log(filteredCollection);
+    // errorMessage = inputElement.current.value;
+    if (errorMessage === "") {
+      setErrorMessage("please enter something here...");
+    } else {
+      setErrorMessage("");
+    }
 
     let multipleTypes = Array.from(filteredCollection)
       .map((item) => item.value)
@@ -65,6 +74,7 @@ export default function Search() {
 
     searchResults = await getSearchForItem(query, multipleTypes);
     console.log(searchResults);
+
     setResults({
       albums: searchResults.albums ? searchResults.albums.items : [],
       artists: searchResults.artists ? searchResults.artists.items : [],
@@ -94,7 +104,11 @@ export default function Search() {
       return <SearchEpisodes results={results} />;
     } else {
       return <SearchAlbums results={results} />;
-      // return <p>Select a category to view results.</p>;
+      // return (
+      //   <p className={classes.message}>
+      //     Select above category to view the results.
+      //   </p>
+      // );
     }
   }
   function openDropdown() {
@@ -116,27 +130,41 @@ export default function Search() {
               multiple
               defaultValue={["album"]}
             >
-              <option value="option" disabled>
+              <option className={classes.disableSelect} value="option" disabled>
                 Select...
               </option>
 
-              <option value="album">album</option>
-              <option value="artist">artist</option>
-              <option value="playlist">playlist</option>
-              <option value="track">track</option>
-              <option value="show">show</option>
-              <option value="episode">episode</option>
+              <option className={classes.selectOption} value="album">
+                album
+              </option>
+              <option className={classes.selectOption} value="artist">
+                artist
+              </option>
+              <option className={classes.selectOption} value="playlist">
+                playlist
+              </option>
+              <option className={classes.selectOption} value="track">
+                track
+              </option>
+              <option className={classes.selectOption} value="show">
+                show
+              </option>
+              <option className={classes.selectOption} value="episode">
+                episode
+              </option>
               {/* <option value="audiobook">audiobook</option> */}
             </select>
           </p>
           <label>
-            Search Item:{" "}
             <input
               type="search"
               name="enteredText"
+              ref={inputElement}
               className={classes.formlabel}
+              placeholder={errorMessage}
             />
           </label>
+          {/* <p className={classes.formvalidation}>{errorMessage}</p> */}
         </form>
         <section className={classes.buttons}>
           {/* conditional rendering here...*/}

@@ -15,9 +15,9 @@ export default function Albums({ tracks }) {
         <h2 className="headingInGradiantColor">All Songs</h2>
 
         <ul>
-          {tracks.map((track) => (
-            <Link href={`/artist/${track.artists[0].id}`}>
-              <li key={track.name} className={classes.listitem}>
+          {tracks.map((track, index) => (
+            <li key={`track-${index}`} className={classes.listitem}>
+              <Link href={`/artist/${track.artists[0].id}`}>
                 <article className={classes.article}>
                   {/* <div className={classes.imagecontainer}>
                   <Image
@@ -41,8 +41,8 @@ export default function Albums({ tracks }) {
                     {GetDurationInMinAndSec(track.duration_ms)}
                   </time>
                 </article>
-              </li>
-            </Link>
+              </Link>
+            </li>
           ))}
         </ul>
       </main>

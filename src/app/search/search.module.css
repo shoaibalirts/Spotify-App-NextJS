@@ -19,10 +19,19 @@
 .select {
   background-color: rgb(255, 17, 104);
   color: white;
+  border-color: none;
+  &:hover {
+    border-color: none;
+  }
 }
 .formlabel {
   margin-top: 2rem;
-  color: black;
+  background-color: black;
+  color: white;
+  width: 80%;
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
 }
 .buttons {
   margin-left: 2.5rem;
@@ -41,4 +50,25 @@
 .renderbuttondata {
   background-color: rgb(229, 64, 40);
   border: 1px white solid;
+}
+.message {
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  text-align: center;
+}
+.disableSelect {
+  color: black;
+}
+.selectOption {
+  color: white;
+  /* margin: 0.2rem; */
+  padding: 0.2rem;
+  text-align: center;
+  font-size: 1rem;
+  border-radius: 5px;
+}
+.formvalidation {
+  background-color: black;
+  color: white;
 }
